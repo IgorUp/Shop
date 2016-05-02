@@ -14,10 +14,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Start</title>
+    <link href="<c:url value="/resources/boot/css/bootstrap.min.css" />" rel="stylesheet">
 </head>
 <body>
 <div align="center">
-    <table border="1">
+    <table class="table" align="center" border="1">
         <th>Button</th>
             <tr>
                 <td>
@@ -28,6 +29,9 @@
             </tr>
     </table>
 </div>
+<script src="<c:url value="/resources/boot/js/bootstrap.min.js"/>"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="<c:url value="/resources/boot/js/ie10-viewport-bug-workaround.js"/>"></script>
 </body>
 </html>
 
