@@ -7,12 +7,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Manager Home</title>
+		<link href="<c:url value="/resources/boot/css/bootstrap.min.css" />" rel="stylesheet">
     </head>
     <body>
     	<div align="center">
 	        <h1>User List</h1>
 	        <h3><a href="newUser">New Contact</a></h3>
-	        <table border="1">
+	        <table class="table table-hover">
 	        	<th>No</th>
 	        	<th>Role</th>
 	        	<th>Name</th>
@@ -39,5 +40,8 @@
 				</c:forEach>	        	
 			</table>
     	</div>
+		<script src="<c:url value="/resources/boot/js/bootstrap.min.js"/>"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="<c:url value="/resources/boot/js/ie10-viewport-bug-workaround.js"/>"></script>
     </body>
 </html>

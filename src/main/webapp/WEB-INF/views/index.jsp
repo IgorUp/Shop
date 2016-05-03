@@ -18,16 +18,11 @@
 </head>
 <body>
 <div align="center">
-    <table class="table" align="center" border="1">
-        <th>Button</th>
-            <tr>
-                <td>
-                    <a href="home">home</a>
+
+                    <button type="button" class="btn btn-primary" onClick='location.href="home"'>home</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="home2">home2</a>
-                </td>
-            </tr>
-    </table>
+                    <button type="button" class="btn btn-primary" onClick='location.href="home2"'>home2</button>
+
 </div>
 <script src="<c:url value="/resources/boot/js/bootstrap.min.js"/>"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

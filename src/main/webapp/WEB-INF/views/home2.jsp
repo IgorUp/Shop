@@ -14,12 +14,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Manufacturer Manager Home</title>
+    <link href="<c:url value="/resources/boot/css/bootstrap.min.css" />" rel="stylesheet">
 </head>
 <body>
 <div align="center">
     <h1>Manufacturer List</h1>
     <h3><a href="newManufacturer">New Manufacturer</a></h3>
-    <table border="1">
+    <table class="table table-hover">
         <th>No</th>
         <th>Manufacturer</th>
         <th>Button</th>
@@ -37,6 +38,9 @@
         </c:forEach>
     </table>
 </div>
+<script src="<c:url value="/resources/boot/js/bootstrap.min.js"/>"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="<c:url value="/resources/boot/js/ie10-viewport-bug-workaround.js"/>"></script>
 </body>
 </html>
 
