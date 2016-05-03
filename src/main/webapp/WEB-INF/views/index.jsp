@@ -19,9 +19,9 @@
 <body>
 <div align="center">
 
-                    <button type="button" class="btn btn-primary" onClick='location.href="home"'>home</button>
+                    <button type="button" class="btn btn-primary" onClick='location.href="home"'>Пользователи</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary" onClick='location.href="home2"'>home2</button>
+                    <button type="button" class="btn btn-primary" onClick='location.href="home2"'>Производители</button>
 
 </div>
 <script src="<c:url value="/resources/boot/js/bootstrap.min.js"/>"></script>
