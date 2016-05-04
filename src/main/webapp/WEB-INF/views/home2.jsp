@@ -19,7 +19,7 @@
 <body>
 <div align="center">
     <h1>Производители</h1>
-    <h3><a href="newManufacturer">Добавить производителя</a></h3>
+    <h3><button type="button" class="btn btn-primary" onClick='location.href="newManufacturer"'>Добавить производителя</button></h3>
     <table class="table table-hover" id="grid">
         <thead>
         <tr>

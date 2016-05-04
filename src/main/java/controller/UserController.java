@@ -44,10 +44,28 @@ public class UserController {
         return model;
     }
 
+    @RequestMapping(value = "/newUser2", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView newUser2(ModelAndView model) {
+        User user = new User();
+        model.addObject("user", user);
+        model.setViewName("UserForm2");
+        return model;
+    }
+
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView saveUser(@ModelAttribute User user) {
         userDao.addOrUpdate(user);
+        //userDao.upd(user);
+        return new ModelAndView("redirect:/");
+    }
+
+    @RequestMapping(value = "/saveUser2", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView saveUser2(@ModelAttribute User user) {
+        //userDao.addOrUpdate(user);
+        userDao.upd(user);
         return new ModelAndView("redirect:/");
     }
 
@@ -67,5 +85,12 @@ public class UserController {
         ModelAndView model = new ModelAndView("UserForm");
         model.addObject("user", user);
         return model;
+    }
+
+    @RequestMapping(value="/test", method = RequestMethod.GET)
+    @ResponseBody
+    public List<User> listUser() throws Exception {
+        List<User> listUser = userDao.listUsers();
+        return listUser;
     }
 }

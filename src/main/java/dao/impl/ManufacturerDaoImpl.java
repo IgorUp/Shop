@@ -23,6 +23,11 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     private JdbcTemplate jdbcTemplate;
 
     @Override
+    public void upd(Manufacturer manufacturer) {
+
+    }
+
+    @Override
     public void addOrUpdate(Manufacturer manufacturer) {
 //        if (manufacturer.getId_manufacturer() > 0) {
 //            // update
@@ -33,7 +38,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
             String sql = "INSERT INTO manufacturer (manufacturer_name)"
                     + " VALUES (?)";
             jdbcTemplate.update(sql,manufacturer.getManufacturer_name());
-     //   }
+       // }
     }
 
     @Override

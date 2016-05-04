@@ -10,6 +10,8 @@ import java.util.List;
 public interface UserDao {
     void addOrUpdate(User user);
 
+    void upd(User user);
+
     void delete(Integer user_id);
 
     User get(Integer user_id);

@@ -1,13 +1,14 @@
-package dao;
+package service;
 
 import domain.Manufacturer;
 
 import java.util.List;
 
 /**
- * Created by Igor on 13.04.2016.
+ * Created by Igoryan on 03.05.2016.
  */
-public interface ManufacturerDao {
+public interface ManufacturerService {
+
     void addOrUpdate(Manufacturer manufacturer);
 
     void upd(Manufacturer manufacturer);

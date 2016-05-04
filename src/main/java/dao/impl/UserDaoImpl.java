@@ -22,21 +22,30 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+
+    @Override
+    public void upd(User user){
+        String sql = "INSERT INTO user (role, name, surname, passport_id, phone_number)"
+                + " VALUES (?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql,user.getRole(), user.getName(),
+                user.getSurname(),user.getPassport_id(),user.getPhone_number());
+    }
+
     @Override
     public void addOrUpdate(User user) {
-        if (user.getId_user() > 0) {
+        //if (user.getId_user() > 0) {
             // update
             String sql = "UPDATE user SET role=?, name=?, surname=?, "
                     + "passport_id=?, phone_number=? WHERE id_user=?";
             jdbcTemplate.update(sql, user.getRole(), user.getName(),
                     user.getSurname(),user.getPassport_id(),user.getPhone_number(),user.getId_user());
-        } else {
-            // insert
-            String sql = "INSERT INTO user (role, name, surname, passport_id, phone_number)"
-                    + " VALUES (?, ?, ?, ?, ?)";
-            jdbcTemplate.update(sql,user.getRole(), user.getName(),
-                    user.getSurname(),user.getPassport_id(),user.getPhone_number());
-        }
+//        } else {
+//            // insert
+//            String sql = "INSERT INTO user (role, name, surname, passport_id, phone_number)"
+//                    + " VALUES (?, ?, ?, ?, ?)";
+//            jdbcTemplate.update(sql,user.getRole(), user.getName(),
+//                    user.getSurname(),user.getPassport_id(),user.getPhone_number());
+//        }
     }
 
     @Override

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import service.ManufacturerService;
 
 /**
  * Created by Igor on 13.04.2016.
@@ -25,12 +26,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class ManufacturerController {
 
     @Autowired
-    private ManufacturerDao manufacturerDao;
+    private ManufacturerService manufacturerService;
 
     @RequestMapping(value="/home2")
     @ResponseBody
     public ModelAndView listManufacturer(ModelAndView model) throws IOException {
-        List<Manufacturer> listManufacturers = manufacturerDao.listManufacturers();
+        List<Manufacturer> listManufacturers = manufacturerService.listManufacturers();
         model.addObject("listManufacturer", listManufacturers);
         model.setViewName("home2");
 
@@ -49,7 +50,7 @@ public class ManufacturerController {
     @RequestMapping(value = "/saveManufacturer", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView saveManufacturer(@ModelAttribute Manufacturer manufacturer) {
-        manufacturerDao.addOrUpdate(manufacturer);
+        manufacturerService.addOrUpdate(manufacturer);
         return new ModelAndView("redirect:/");
     }
 
@@ -57,7 +58,7 @@ public class ManufacturerController {
     @ResponseBody
     public ModelAndView deleteManufacturer(HttpServletRequest request) {
         int manufacturer_id = Integer.parseInt(request.getParameter("id_manufacturer"));
-        manufacturerDao.delete(manufacturer_id);
+        manufacturerService.delete(manufacturer_id);
         return new ModelAndView("redirect:/");
     }
 
@@ -65,7 +66,7 @@ public class ManufacturerController {
     @ResponseBody
     public ModelAndView editManufacturer(HttpServletRequest request) {
         int manufacturer_id = Integer.parseInt(request.getParameter("id_manufacturer"));
-        Manufacturer manufacturer = manufacturerDao.get(manufacturer_id);
+        Manufacturer manufacturer = manufacturerService.get(manufacturer_id);
         ModelAndView model = new ModelAndView("ManufacturerForm");
         model.addObject("manufacturer", manufacturer);
         return model;
