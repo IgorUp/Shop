@@ -47,10 +47,26 @@ public class ManufacturerController {
         return model;
     }
 
+    @RequestMapping(value = "/newManufacturer2", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView newManufacturer2(ModelAndView model) {
+        Manufacturer manufacturer = new Manufacturer();
+        model.addObject("manufacturer", manufacturer);
+        model.setViewName("ManufacturerForm2");
+        return model;
+    }
+
     @RequestMapping(value = "/saveManufacturer", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView saveManufacturer(@ModelAttribute Manufacturer manufacturer) {
         manufacturerService.addOrUpdate(manufacturer);
+        return new ModelAndView("redirect:/");
+    }
+
+    @RequestMapping(value = "/saveManufacturer2", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView saveManufacturer2(@ModelAttribute Manufacturer manufacturer) {
+        manufacturerService.upd(manufacturer);
         return new ModelAndView("redirect:/");
     }
 

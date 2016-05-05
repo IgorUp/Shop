@@ -3,9 +3,7 @@ package domain;
 /**
  * Created by Igor on 13.04.2016.
  */
-@Entity
-@Table(name = "Manufacturer")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 public class Manufacturer {
     Integer id_manufacturer;
     String manufacturer_name;

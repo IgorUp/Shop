@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `shop` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `shop`;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: shop
@@ -102,17 +100,22 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(45) NOT NULL,
   `role` int(1) NOT NULL,
   `name` varchar(45) NOT NULL,
   `surname` varchar(45) NOT NULL,
-  `passport_id` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
   `phone_number` int(12) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `iduser_UNIQUE` (`id_user`),
-  UNIQUE KEY `passport_id_UNIQUE` (`passport_id`),
-  UNIQUE KEY `phone_number_UNIQUE` (`phone_number`)
+  UNIQUE KEY `phone_number_UNIQUE` (`phone_number`),
+  UNIQUE KEY `login_UNIQUE` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping routines for database 'shop'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -123,4 +126,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-04 14:24:00
+-- Dump completed on 2016-05-04 20:17:04

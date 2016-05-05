@@ -18,7 +18,7 @@
 <body>
 <div align="center">
     <h1>New/Edit Contact</h1>
-    <form:form action="saveManufacturer2" method="post" modelAttribute="manufacturer">
+    <form:form action="saveManufacturer" method="post" modelAttribute="manufacturer">
         <table>
             <form:hidden path="id_manufacturer"/>
             <tr>

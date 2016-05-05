@@ -13,17 +13,17 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Manufacturer</title>
+    <title>Prod</title>
 </head>
 <body>
 <div align="center">
     <h1>New/Edit Contact</h1>
-    <form:form action="saveManufacturer2" method="post" modelAttribute="manufacturer">
+    <form:form action="updateProductName" method="post" modelAttribute="product_name">
         <table>
-            <form:hidden path="id_manufacturer"/>
+            <form:hidden path="id"/>
             <tr>
                 <td>Manufacturer:</td>
-                <td><form:input path="manufacturer_name" /></td>
+                <td><form:input path="product_name" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="Save"></td>

@@ -24,7 +24,8 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
 
     @Override
     public void upd(Manufacturer manufacturer) {
-
+        String sql = "UPDATE manufacturer SET manufacturer_name=? WHERE id_manufacturer=?";
+            jdbcTemplate.update(sql, manufacturer.getManufacturer_name(), manufacturer.getId_manufacturer());
     }
 
     @Override

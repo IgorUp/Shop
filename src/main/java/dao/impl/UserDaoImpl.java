@@ -25,10 +25,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void upd(User user){
-        String sql = "INSERT INTO user (role, name, surname, passport_id, phone_number)"
-                + " VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (role, name, surname, password, phone_number,login)"
+                + " VALUES (?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql,user.getRole(), user.getName(),
-                user.getSurname(),user.getPassport_id(),user.getPhone_number());
+                user.getSurname(),user.getPassword(),user.getPhone_number(),user.getLogin());
     }
 
     @Override
@@ -36,9 +36,9 @@ public class UserDaoImpl implements UserDao {
         //if (user.getId_user() > 0) {
             // update
             String sql = "UPDATE user SET role=?, name=?, surname=?, "
-                    + "passport_id=?, phone_number=? WHERE id_user=?";
+                    + "password=?, phone_number=?, login=? WHERE id_user=?";
             jdbcTemplate.update(sql, user.getRole(), user.getName(),
-                    user.getSurname(),user.getPassport_id(),user.getPhone_number(),user.getId_user());
+                    user.getSurname(),user.getPassword(),user.getPhone_number(),user.getId_user(),user.getLogin());
 //        } else {
 //            // insert
 //            String sql = "INSERT INTO user (role, name, surname, passport_id, phone_number)"
@@ -68,8 +68,9 @@ public class UserDaoImpl implements UserDao {
                     user.setRole(rs.getInt("role"));
                     user.setName(rs.getString("name"));
                     user.setSurname(rs.getString("surname"));
-                    user.setPassport_id(rs.getString("passport_id"));
+                    user.setPassword(rs.getString("password"));
                     user.setPhone_number(rs.getInt("phone_number"));
+                    user.setLogin(rs.getString("login"));
                     return user;
                 }
                 return null;
@@ -90,8 +91,9 @@ public class UserDaoImpl implements UserDao {
                 user.setRole(rs.getInt("role"));
                 user.setName(rs.getString("name"));
                 user.setSurname(rs.getString("surname"));
-                user.setPassport_id(rs.getString("passport_id"));
+                user.setPassword(rs.getString("password"));
                 user.setPhone_number(rs.getInt("phone_number"));
+                user.setLogin(rs.getString("login"));
 
                 return user;
             }

@@ -4,21 +4,6 @@ package domain;
  * Created by Igor on 13.04.2016.
  */
 public class User {
-    Integer id_user;
-    Integer role;
-    String name;
-    String surname;
-    String passport_id;
-    Integer phone_number;
-
-    public Integer getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(Integer phone_number) {
-        this.phone_number = phone_number;
-    }
-
     public Integer getId_user() {
         return id_user;
     }
@@ -51,12 +36,37 @@ public class User {
         this.surname = surname;
     }
 
-    public String getPassport_id() {
-        return passport_id;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassport_id(String passport_id) {
-        this.passport_id = passport_id;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public Integer getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(Integer phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    Integer id_user;
+    Integer role;
+    String name;
+    String surname;
+    String password;
+    Integer phone_number;
+    String login;
+
 
 }

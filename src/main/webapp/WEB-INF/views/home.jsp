@@ -21,6 +21,7 @@
 	        	<th data-type="string">Фамилия</th>
 	        	<th data-type="string">Личный номер(номер в паспорте)</th>
 	        	<th data-type="number">Телефон</th>
+				<th data-type="string">Login</th>
 				<th></th>
 				</thead>
 				<tbody>
@@ -30,8 +31,9 @@
 					<td>${user.role}</td>
 					<td>${user.name}</td>
 					<td>${user.surname}</td>
-					<td>${user.passport_id}</td>
+					<td>${user.password}</td>
 					<td>${user.phone_number}</td>
+					<td>${user.login}</td>
 					<td>
 						<a href="editUser?id_user=${user.id_user}">Редактировать</a>
 						&nbsp;&nbsp;&nbsp;&nbsp;

@@ -27,12 +27,16 @@
                 <td><form:input path="surname" /></td>
             </tr>
             <tr>
-                <td>Passport id:</td>
-                <td><form:input path="passport_id" /></td>
+                <td>Password:</td>
+                <td><form:input path="password" /></td>
             </tr>
             <tr>
                 <td>Telephone:</td>
                 <td><form:input path="phone_number" /></td>
+            </tr>
+            <tr>
+                <td>Login:</td>
+                <td><form:input path="login" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="Save"></td>

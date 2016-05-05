@@ -18,12 +18,12 @@
 <body>
 <div align="center">
     <h1>New/Edit Contact</h1>
-    <form:form action="saveManufacturer2" method="post" modelAttribute="manufacturer">
+    <form:form action="addProductName" method="post" modelAttribute="product_name">
         <table>
-            <form:hidden path="id_manufacturer"/>
+            <form:hidden path="id"/>
             <tr>
-                <td>Manufacturer:</td>
-                <td><form:input path="manufacturer_name" /></td>
+                <td>Prod:</td>
+                <td><form:input path="product_name" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="Save"></td>

@@ -19,24 +19,24 @@
 <body>
 <div align="center">
     <h1>Производители</h1>
-    <h3><button type="button" class="btn btn-primary" onClick='location.href="newManufacturer2"'>Добавить производителя</button></h3>
+    <h3><button type="button" class="btn btn-primary" onClick='location.href="newProductNameAdd"'>Добавить производителя</button></h3>
     <table class="table table-hover" id="grid">
         <thead>
         <tr>
         <th data-type="number">No</th>
-        <th data-type="string">Производитель</th>
+        <th data-type="string">Продукт</th>
         <th></th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="manufacturer" items="${listManufacturer}" varStatus="status">
+        <c:forEach var="product_name" items="${listProductName}" varStatus="status">
             <tr>
                 <td>${status.index + 1}</td>
-                <td>${manufacturer.manufacturer_name}</td>
+                <td>${product_name.product_name}</td>
                 <td>
-                    <a href="editManufacturer?id_manufacturer=${manufacturer.id_manufacturer}">Редактировать</a>
+                    <a href="editProductName?id=${product_name.id}">Редактировать</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="deleteManufacturer?id_manufacturer=${manufacturer.id_manufacturer}">Удалить</a>
+                    <a href="deleteProductName?id=${product_name.id}">Удалить</a>
                 </td>
             </tr>
         </c:forEach>

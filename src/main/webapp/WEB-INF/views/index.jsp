@@ -19,10 +19,11 @@
 <body>
 <div align="center">
 
-                    <button type="button" class="btn btn-primary" onClick='location.href="home"'>Пользователи</button>
+                    <button type="button" class="btn btn-primary" onClick='location.href="homeOl"'>Пользователи</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="button" class="btn btn-primary" onClick='location.href="home2"'>Производители</button>
-
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary" onClick='location.href="homeProductName"'>Производители</button>
 </div>
 <script src="<c:url value="/resources/boot/js/bootstrap.min.js"/>"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

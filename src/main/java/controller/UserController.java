@@ -25,12 +25,12 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(value="/home")
+    @RequestMapping(value="/homeOl")
     @ResponseBody
     public ModelAndView listUser(ModelAndView model) throws IOException {
         List<User> listUser = userDao.listUsers();
         model.addObject("listUser", listUser);
-        model.setViewName("home");
+        model.setViewName("homeOl");
 
         return model;
     }
@@ -87,10 +87,10 @@ public class UserController {
         return model;
     }
 
-    @RequestMapping(value="/test", method = RequestMethod.GET)
-    @ResponseBody
-    public List<User> listUser() throws Exception {
-        List<User> listUser = userDao.listUsers();
-        return listUser;
-    }
+//    @RequestMapping(value="/test", method = RequestMethod.GET)
+//    @ResponseBody
+//    public List<User> listUser() throws Exception {
+//        List<User> listUser = userDao.listUsers();
+//        return listUser;
+//    }
 }
