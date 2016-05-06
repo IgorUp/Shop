@@ -28,12 +28,12 @@ public class ManufacturerController {
     @Autowired
     private ManufacturerService manufacturerService;
 
-    @RequestMapping(value="/home2")
+    @RequestMapping(value="/homeManufacturer")
     @ResponseBody
     public ModelAndView listManufacturer(ModelAndView model) throws IOException {
         List<Manufacturer> listManufacturers = manufacturerService.listManufacturers();
         model.addObject("listManufacturer", listManufacturers);
-        model.setViewName("home2");
+        model.setViewName("homeManufacturer");
 
         return model;
     }

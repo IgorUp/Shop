@@ -42,7 +42,7 @@ public class ProductNameController {
 
     @RequestMapping(value = "/newProductNameAdd", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView newProductName(ModelAndView model) {
+    public ModelAndView newProductNameAdd(ModelAndView model) {
         ProductName product_Name = new ProductName();
         model.addObject("product_name", product_Name);
         model.setViewName("productNameFormAdd");
@@ -51,7 +51,7 @@ public class ProductNameController {
 
     @RequestMapping(value = "/newProductNameUpdate", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView newProductName2(ModelAndView model) {
+    public ModelAndView newProductNameUpdate(ModelAndView model) {
         ProductName product_Name = new ProductName();
         model.addObject("product_name", product_Name);
         model.setViewName("productNameFormUpdate");
@@ -60,14 +60,14 @@ public class ProductNameController {
 
     @RequestMapping(value = "/addProductName", method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView saveProductName(@ModelAttribute ProductName productName) {
+    public ModelAndView addProductName(@ModelAttribute ProductName productName) {
         productNameService.add(productName);
         return new ModelAndView("redirect:/");
     }
 
     @RequestMapping(value = "/updateProductName", method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView saveProductName2(@ModelAttribute ProductName productName) {
+    public ModelAndView updateProductName(@ModelAttribute ProductName productName) {
         productNameService.upd(productName);
         return new ModelAndView("redirect:/");
     }

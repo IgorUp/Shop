@@ -69,7 +69,6 @@ public class ProductNameDaoImpl implements ProductNameDao {
             @Override
             public ProductName mapRow(ResultSet rs, int rowNum) throws SQLException {
                 ProductName productName = new ProductName();
-
                 productName.setId(rs.getInt("id_name"));
                 productName.setProduct_name(rs.getString("product_name"));
                 return productName;

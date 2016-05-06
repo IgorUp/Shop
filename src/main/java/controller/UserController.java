@@ -25,12 +25,12 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(value="/homeOl")
+    @RequestMapping(value="/home")
     @ResponseBody
     public ModelAndView listUser(ModelAndView model) throws IOException {
         List<User> listUser = userDao.listUsers();
         model.addObject("listUser", listUser);
-        model.setViewName("homeOl");
+        model.setViewName("home");
 
         return model;
     }

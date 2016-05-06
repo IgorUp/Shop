@@ -25,7 +25,7 @@ public class ComonController {
     @RequestMapping(value="/")
     @ResponseBody
     public ModelAndView view(ModelAndView model) throws IOException {
-        model.setViewName("index");
+        model.setViewName("home");
         return model;
     }
 }
