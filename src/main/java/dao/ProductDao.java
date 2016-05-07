@@ -19,4 +19,5 @@ public interface ProductDao {
     Product get(Integer product_id);
 
     List<Product> listProduct();
+
 }

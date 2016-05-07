@@ -1,6 +1,7 @@
 package dao.impl;
 
 import dao.ProductDao;
+import domain.Manufacturer;
 import domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -24,11 +25,11 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public void add(Product product) {
-        String sql = "INSERT INTO `product` (id_manufacturer, id_name, model, number, cost, picture)"
-                + " VALUES (?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, product.getId_manufacturer(),
-                product.getId_name(),product.getModel(),
-                product.getNumber(),product.getCost(),product.getPicture());
+            String sql = "INSERT INTO `product` (id_manufacturer, id_name, model, number, cost, picture)"
+                    + " VALUES (?,?,?,?,?,?)";
+            jdbcTemplate.update(sql, product.getId_manufacturer(),
+                    product.getId_name(), product.getModel(),
+                    product.getNumber(), product.getCost(), product.getPicture());
     }
 
     @Override

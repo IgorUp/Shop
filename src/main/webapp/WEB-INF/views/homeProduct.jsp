@@ -59,9 +59,9 @@
                 <div class="cnt-account">
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
-                        <li><a href="admin_tovar.html"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
-                        <li><a href="admin_manufact.html"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
-                        <li><a href="admin_order.html"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
+                        <li><a href="admin_tovar"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
+                        <li><a href="admin_manufact"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
+                        <li><a href="admin_order"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
                     </ul>
                 </div><!-- /.cnt-account -->
 
@@ -134,13 +134,13 @@
                 <tbody>
                 <c:forEach var="product" items="${listProduct}" varStatus="status">
                     <tr>
-                        <td>${status.index + 1}</td>
+                        <td>${product.id_product}</td>
                         <td>${product.id_manufacturer}</td>
                         <td>${product.id_name}</td>
                         <td>${product.model}</td>
                         <td>${product.number}</td>
                         <td>${product.cost}</td>
-                        <td>${product.picture}</td>
+                        <td><img src="<c:url value="/resources/assets/images/${product.picture}"/>" alt="" width="225"></td>
                         <td>
                             <a href="editProduct?id_product=${product.id_product}">Редакь</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -163,7 +163,7 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="copyright">
                     Copyright © 2016
-                    <a href="home.html">O•P•I</a>
+                    <a href="home">O•P•I</a>
                     - Все права защищены
                 </div>
             </div>

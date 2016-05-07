@@ -17,4 +17,6 @@ public interface UserDao {
     User get(Integer user_id);
 
     List<User> listUsers();
+
+    void chek(String login, String password);
 }

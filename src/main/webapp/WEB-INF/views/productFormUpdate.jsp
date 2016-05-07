@@ -62,9 +62,9 @@
                 <div class="cnt-account">
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
-                        <li><a href="admin_tovar.html"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
-                        <li><a href="admin_manufact.html"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
-                        <li><a href="admin_order.html"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
+                        <li><a href="admin_tovar"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
+                        <li><a href="admin_manufact"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
+                        <li><a href="admin_order"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
                     </ul>
                 </div><!-- /.cnt-account -->
 
@@ -165,7 +165,7 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="copyright">
                     Copyright © 2016
-                    <a href="home.html">O•P•I</a>
+                    <a href="home">O•P•I</a>
                     - Все права защищены
                 </div>
             </div>

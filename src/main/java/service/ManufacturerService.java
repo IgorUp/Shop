@@ -1,6 +1,7 @@
 package service;
 
 import domain.Manufacturer;
+import domain.Ups;
 
 import java.util.List;
 
@@ -18,4 +19,10 @@ public interface ManufacturerService {
     Manufacturer get(Integer manufacturer_id);
 
     List<Manufacturer> listManufacturers();
+
+    List<Ups> listTest();
+    List<Ups> listComp();
+    List<Ups> listPfotoVideo();
+    List<Ups> listTel();
+    List<Ups> listTV();
 }

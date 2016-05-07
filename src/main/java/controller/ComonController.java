@@ -28,4 +28,40 @@ public class ComonController {
         model.setViewName("home");
         return model;
     }
+    @RequestMapping(value="/about")
+    @ResponseBody
+    public ModelAndView about(ModelAndView model) throws IOException {
+        model.setViewName("about");
+        return model;
+    }
+    @RequestMapping(value="/news")
+    @ResponseBody
+    public ModelAndView news(ModelAndView model) throws IOException {
+        model.setViewName("news");
+        return model;
+    }
+    @RequestMapping(value="/contact")
+    @ResponseBody
+    public ModelAndView contact(ModelAndView model) throws IOException {
+        model.setViewName("contact");
+        return model;
+    }
+    @RequestMapping(value="/delivery")
+    @ResponseBody
+    public ModelAndView delivery(ModelAndView model) throws IOException {
+        model.setViewName("delivery");
+        return model;
+    }
+    @RequestMapping(value="/test")
+    @ResponseBody
+    public ModelAndView test(ModelAndView model) throws IOException {
+        model.setViewName("test");
+        return model;
+    }
+    @RequestMapping(value="/chart")
+    @ResponseBody
+    public ModelAndView chart(ModelAndView model) throws IOException {
+        model.setViewName("chart");
+        return model;
+    }
 }

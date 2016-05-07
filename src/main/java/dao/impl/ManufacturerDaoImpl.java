@@ -2,6 +2,7 @@ package dao.impl;
 
 import dao.ManufacturerDao;
 import domain.Manufacturer;
+import domain.Ups;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -82,5 +83,125 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
             }
         });
         return listManufacturer;
+    }
+
+    @Override
+    public List<Ups> listTest() {
+        String sql = "SELECT product.picture, manufacturer.manufacturer_name, product.model, product.cost\n" +
+                "FROM manufacturer\n" +
+                "INNER JOIN product\n" +
+                "ON manufacturer.id_manufacturer = product.id_manufacturer\n" +
+                "WHERE product.id_name = 6;";
+        List<Ups> listTest = jdbcTemplate.query(sql, new RowMapper<Ups>() {
+
+            @Override
+            public Ups mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Ups ups = new Ups();
+                //ups.setId_manufacturer(rs.getInt("id_manufacturer"));
+                ups.setManufacturer_name(rs.getString("manufacturer_name"));
+                ups.setPicture(rs.getString("picture"));
+                ups.setModel(rs.getString("model"));
+                ups.setCost(rs.getInt("cost"));
+                return ups;
+            }
+        });
+        //List<Ups> listTest = jdbcTemplate.queryForObject(sql, List.class);
+        return listTest;
+    }
+
+    @Override
+    public List<Ups> listComp() {
+        String sql = "SELECT product.picture, manufacturer.manufacturer_name, product.model, product.cost\n" +
+                "FROM manufacturer\n" +
+                "INNER JOIN product\n" +
+                "ON manufacturer.id_manufacturer = product.id_manufacturer\n" +
+                "WHERE product.id_name = 1;";
+        List<Ups> listTest = jdbcTemplate.query(sql, new RowMapper<Ups>() {
+
+            @Override
+            public Ups mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Ups ups = new Ups();
+                //ups.setId_manufacturer(rs.getInt("id_manufacturer"));
+                ups.setManufacturer_name(rs.getString("manufacturer_name"));
+                ups.setPicture(rs.getString("picture"));
+                ups.setModel(rs.getString("model"));
+                ups.setCost(rs.getInt("cost"));
+                return ups;
+            }
+        });
+        //List<Ups> listTest = jdbcTemplate.queryForObject(sql, List.class);
+        return listTest;
+    }
+
+    @Override
+    public List<Ups> listPfotoVideo() {
+        String sql = "SELECT product.picture, manufacturer.manufacturer_name, product.model, product.cost\n" +
+                "FROM manufacturer\n" +
+                "INNER JOIN product\n" +
+                "ON manufacturer.id_manufacturer = product.id_manufacturer\n" +
+                "WHERE product.id_name = 5;";
+        List<Ups> listTest = jdbcTemplate.query(sql, new RowMapper<Ups>() {
+
+            @Override
+            public Ups mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Ups ups = new Ups();
+                //ups.setId_manufacturer(rs.getInt("id_manufacturer"));
+                ups.setManufacturer_name(rs.getString("manufacturer_name"));
+                ups.setPicture(rs.getString("picture"));
+                ups.setModel(rs.getString("model"));
+                ups.setCost(rs.getInt("cost"));
+                return ups;
+            }
+        });
+        //List<Ups> listTest = jdbcTemplate.queryForObject(sql, List.class);
+        return listTest;
+    }
+
+    @Override
+    public List<Ups> listTel() {
+        String sql = "SELECT product.picture, manufacturer.manufacturer_name, product.model, product.cost\n" +
+                "FROM manufacturer\n" +
+                "INNER JOIN product\n" +
+                "ON manufacturer.id_manufacturer = product.id_manufacturer\n" +
+                "WHERE product.id_name = 4;";
+        List<Ups> listTest = jdbcTemplate.query(sql, new RowMapper<Ups>() {
+
+            @Override
+            public Ups mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Ups ups = new Ups();
+                //ups.setId_manufacturer(rs.getInt("id_manufacturer"));
+                ups.setManufacturer_name(rs.getString("manufacturer_name"));
+                ups.setPicture(rs.getString("picture"));
+                ups.setModel(rs.getString("model"));
+                ups.setCost(rs.getInt("cost"));
+                return ups;
+            }
+        });
+        //List<Ups> listTest = jdbcTemplate.queryForObject(sql, List.class);
+        return listTest;
+    }
+
+    @Override
+    public List<Ups> listTV() {
+        String sql = "SELECT product.picture, manufacturer.manufacturer_name, product.model, product.cost\n" +
+                "FROM manufacturer\n" +
+                "INNER JOIN product\n" +
+                "ON manufacturer.id_manufacturer = product.id_manufacturer\n" +
+                "WHERE product.id_name = 3;";
+        List<Ups> listTest = jdbcTemplate.query(sql, new RowMapper<Ups>() {
+
+            @Override
+            public Ups mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Ups ups = new Ups();
+                //ups.setId_manufacturer(rs.getInt("id_manufacturer"));
+                ups.setManufacturer_name(rs.getString("manufacturer_name"));
+                ups.setPicture(rs.getString("picture"));
+                ups.setModel(rs.getString("model"));
+                ups.setCost(rs.getInt("cost"));
+                return ups;
+            }
+        });
+        //List<Ups> listTest = jdbcTemplate.queryForObject(sql, List.class);
+        return listTest;
     }
 }

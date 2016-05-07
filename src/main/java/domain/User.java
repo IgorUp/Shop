@@ -12,13 +12,13 @@ public class User {
         this.id_user = id_user;
     }
 
-    public Integer getRole() {
-        return role;
-    }
-
-    public void setRole(Integer role) {
-        this.role = role;
-    }
+//    public Integer getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(Integer role) {
+//        this.role = role;
+//    }
 
     public String getName() {
         return name;
@@ -36,13 +36,13 @@ public class User {
         this.surname = surname;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
     public Integer getPhone_number() {
         return phone_number;
@@ -52,21 +52,21 @@ public class User {
         this.phone_number = phone_number;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
+//    public String getLogin() {
+//        return login;
+//    }
+//
+//    public void setLogin(String login) {
+//        this.login = login;
+//    }
 
     Integer id_user;
-    Integer role;
+    //Integer role;
     String name;
     String surname;
-    String password;
+    //String password;
     Integer phone_number;
-    String login;
+   // String login;
 
 
 }

@@ -1,6 +1,7 @@
 package dao;
 
 import domain.Manufacturer;
+import domain.Ups;
 
 import java.util.List;
 
@@ -17,4 +18,10 @@ public interface ManufacturerDao {
     Manufacturer get(Integer manufacturer_id);
 
     List<Manufacturer> listManufacturers();
+
+    List<Ups> listTest();
+    List<Ups> listComp();
+    List<Ups> listPfotoVideo();
+    List<Ups> listTel();
+    List<Ups> listTV();
 }

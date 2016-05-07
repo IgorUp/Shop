@@ -24,21 +24,29 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
-    public void upd(User user){
-        String sql = "INSERT INTO user (role, name, surname, password, phone_number,login)"
+    public void upd(User user) {
+        String sql = "INSERT INTO user (name, surname,phone_number)"
                 + " VALUES (?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql,user.getRole(), user.getName(),
-                user.getSurname(),user.getPassword(),user.getPhone_number(),user.getLogin());
+        jdbcTemplate.update(sql,user.getName(),
+                user.getSurname(),  user.getPhone_number());
+//        String sql = "INSERT INTO user (role, name, surname, password, phone_number,login)"
+//                + " VALUES (?, ?, ?, ?, ?, ?)";
+//        jdbcTemplate.update(sql, user.getRole(), user.getName(),
+//                user.getSurname(), user.getPassword(), user.getPhone_number(), user.getLogin());
     }
 
     @Override
     public void addOrUpdate(User user) {
         //if (user.getId_user() > 0) {
-            // update
-            String sql = "UPDATE user SET role=?, name=?, surname=?, "
-                    + "password=?, phone_number=?, login=? WHERE id_user=?";
-            jdbcTemplate.update(sql, user.getRole(), user.getName(),
-                    user.getSurname(),user.getPassword(),user.getPhone_number(),user.getId_user(),user.getLogin());
+        // update
+        String sql = "UPDATE user SET  name=?, surname=?, "
+                + " phone_number=? WHERE id_user=?";
+        jdbcTemplate.update(sql, user.getName(),
+                user.getSurname(), user.getPhone_number(), user.getId_user());
+//        String sql = "UPDATE user SET role=?, name=?, surname=?, "
+//                + "password=?, phone_number=?, login=? WHERE id_user=?";
+//        jdbcTemplate.update(sql, user.getRole(), user.getName(),
+//                user.getSurname(), user.getPassword(), user.getPhone_number(), user.getId_user(), user.getLogin());
 //        } else {
 //            // insert
 //            String sql = "INSERT INTO user (role, name, surname, passport_id, phone_number)"
@@ -65,12 +73,12 @@ public class UserDaoImpl implements UserDao {
                 if (rs.next()) {
                     User user = new User();
                     user.setId_user(rs.getInt("id_user"));
-                    user.setRole(rs.getInt("role"));
+                    //user.setRole(rs.getInt("role"));
                     user.setName(rs.getString("name"));
                     user.setSurname(rs.getString("surname"));
-                    user.setPassword(rs.getString("password"));
+                    //user.setPassword(rs.getString("password"));
                     user.setPhone_number(rs.getInt("phone_number"));
-                    user.setLogin(rs.getString("login"));
+                    //user.setLogin(rs.getString("login"));
                     return user;
                 }
                 return null;
@@ -88,12 +96,12 @@ public class UserDaoImpl implements UserDao {
                 User user = new User();
 
                 user.setId_user(rs.getInt("id_user"));
-                user.setRole(rs.getInt("role"));
+                //user.setRole(rs.getInt("role"));
                 user.setName(rs.getString("name"));
                 user.setSurname(rs.getString("surname"));
-                user.setPassword(rs.getString("password"));
+                //user.setPassword(rs.getString("password"));
                 user.setPhone_number(rs.getInt("phone_number"));
-                user.setLogin(rs.getString("login"));
+                //user.setLogin(rs.getString("login"));
 
                 return user;
             }
@@ -101,5 +109,10 @@ public class UserDaoImpl implements UserDao {
         });
 
         return listUser;
+    }
+
+    @Override
+    public void chek(String login, String password) {
+
     }
 }

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import dao.ManufacturerDao;
 import dao.UserDao;
 import domain.Manufacturer;
+import domain.Ups;
 import domain.User;
 import org.springframework.asm.Attribute;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,6 +86,47 @@ public class ManufacturerController {
         Manufacturer manufacturer = manufacturerService.get(manufacturer_id);
         ModelAndView model = new ModelAndView("ManufacturerForm");
         model.addObject("manufacturer", manufacturer);
+        return model;
+    }
+
+    @RequestMapping(value="/catalog_acses")
+    @ResponseBody
+    public ModelAndView listTest(ModelAndView model) throws IOException {
+        List<Ups> listTest = manufacturerService.listTest();
+        model.addObject("listTest", listTest);
+        model.setViewName("catalog_acses");
+        return model;
+    }
+    @RequestMapping(value="/catalog_comp")
+    @ResponseBody
+    public ModelAndView listComp(ModelAndView model) throws IOException {
+        List<Ups> listTest = manufacturerService.listComp();
+        model.addObject("listTest", listTest);
+        model.setViewName("catalog_comp");
+        return model;
+    }
+    @RequestMapping(value="/catalog_photo_video")
+    @ResponseBody
+    public ModelAndView listPhotoVideo(ModelAndView model) throws IOException {
+        List<Ups> listTest = manufacturerService.listPfotoVideo();
+        model.addObject("listTest", listTest);
+        model.setViewName("catalog_photo_video");
+        return model;
+    }
+    @RequestMapping(value="/catalog_tel")
+    @ResponseBody
+    public ModelAndView listTel(ModelAndView model) throws IOException {
+        List<Ups> listTest = manufacturerService.listTel();
+        model.addObject("listTest", listTest);
+        model.setViewName("catalog_tel");
+        return model;
+    }
+    @RequestMapping(value="/catalog_TV")
+    @ResponseBody
+    public ModelAndView listTV(ModelAndView model) throws IOException {
+        List<Ups> listTest = manufacturerService.listTV();
+        model.addObject("listTest", listTest);
+        model.setViewName("catalog_TV");
         return model;
     }
 }

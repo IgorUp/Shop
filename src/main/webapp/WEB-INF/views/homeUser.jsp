@@ -59,9 +59,9 @@
 					<div class="cnt-account">
 						<ul class="list-unstyled">
 							<li><a href="#"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
-							<li><a href="admin_tovar.html"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
-							<li><a href="admin_manufact.html"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
-							<li><a href="admin_order.html"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
+							<li><a href="admin_tovar"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
+							<li><a href="admin_manufact"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
+							<li><a href="admin_order"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
 						</ul>
 					</div><!-- /.cnt-account -->
 
@@ -121,24 +121,24 @@
 				<table class="table table-hover">
 					<thead>
 					<th data-type="number">No</th>
-					<th data-type="number">Роль</th>
+					<%--<th data-type="number">Роль</th>--%>
 					<th data-type="string">Имя</th>
 					<th data-type="string">Фамилия</th>
-					<th data-type="string">Личный номер(номер в паспорте)</th>
+					<%--<th data-type="string">Личный номер(номер в паспорте)</th>--%>
 					<th data-type="number">Телефон</th>
-					<th data-type="string">Login</th>
+					<%--<th data-type="string">Login</th>--%>
 					<th></th>
 					</thead>
 					<tbody>
 					<c:forEach var="user" items="${listUser}" varStatus="status">
 						<tr>
 							<td>${status.index + 1}</td>
-							<td>${user.role}</td>
+							<%--<td>${user.role}</td>--%>
 							<td>${user.name}</td>
 							<td>${user.surname}</td>
-							<td>${user.password}</td>
+							<%--<td>${user.password}</td>--%>
 							<td>${user.phone_number}</td>
-							<td>${user.login}</td>
+							<%--<td>${user.login}</td>--%>
 							<td>
 								<a href="editUser?id_user=${user.id_user}">Редактировать</a>
 								&nbsp;&nbsp;&nbsp;&nbsp;
@@ -162,7 +162,7 @@
 				<div class="col-xs-12 col-sm-6 no-padding">
 					<div class="copyright">
 						Copyright © 2016
-						<a href="home.html">O•P•I</a>
+						<a href="home">O•P•I</a>
 						- Все права защищены
 					</div>
 				</div>
