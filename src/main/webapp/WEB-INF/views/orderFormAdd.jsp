@@ -24,7 +24,7 @@
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Добавить/Редактировать</title>
+    <title>Добавить</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="<c:url value="/resources/assets/css/bootstrap.min.css"/>">
@@ -118,24 +118,24 @@
     <div class="col-md-12 contact-title">
 
         <div align="center">
-            <h1>New/Edit Contact</h1>
+            <h1>Добавление</h1>
             <form:form action="addOrder" method="post" modelAttribute="order">
                 <table>
                     <form:hidden path="id_order"/>
                     <tr>
-                        <td>id prodct:</td>
-                        <td><form:input path="id_product" /></td>
+                        <td>id продукта:</td>
+                        <td><form:input path="id_product" type="number" min="0"/></td>
                     </tr>
                     <tr>
-                        <td>id user:</td>
-                        <td><form:input path="id_user" /></td>
+                        <td>id пользователя:</td>
+                        <td><form:input path="id_user" type="number" min="0"/></td>
                     </tr>
                     <tr>
-                        <td>number ...:</td>
-                        <td><form:input path="number_of_product" /></td>
+                        <td>количество:</td>
+                        <td><form:input path="number_of_product" type="number" min="0"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center"><input type="submit" value="Save"></td>
+                        <td colspan="2" align="center"><input type="submit" value="Сохранить"></td>
                     </tr>
                 </table>
             </form:form>

@@ -100,6 +100,133 @@
     <!--</dependency>-->
   </dependencies>
 
+  <!--<dependencies>-->
+
+    <!--&lt;!&ndash; database pool &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>commons-dbcp</groupId>-->
+      <!--<artifactId>commons-dbcp</artifactId>-->
+      <!--<version>1.4</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; Hibernate ORM &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.hibernate</groupId>-->
+      <!--<artifactId>hibernate-core</artifactId>-->
+      <!--<version>5.1.0.Final</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; Spring 3 dependencies &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework</groupId>-->
+      <!--<artifactId>spring-core</artifactId>-->
+      <!--<version>${spring.version}</version>-->
+      <!--<exclusions>-->
+        <!--<exclusion>-->
+          <!--<groupId>commons-logging</groupId>-->
+          <!--<artifactId>commons-logging</artifactId>-->
+        <!--</exclusion>-->
+      <!--</exclusions>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; Spring MVC &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework</groupId>-->
+      <!--<artifactId>spring-webmvc</artifactId>-->
+      <!--<version>${spring.version}</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; Spring + aspects &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework</groupId>-->
+      <!--<artifactId>spring-aspects</artifactId>-->
+      <!--<version>${spring.version}</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; ORM integration, e.g Hibernate &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework</groupId>-->
+      <!--<artifactId>spring-orm</artifactId>-->
+      <!--<version>${spring.version}</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; Spring Security &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.security</groupId>-->
+      <!--<artifactId>spring-security-web</artifactId>-->
+      <!--<version>3.0.0.RELEASE</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.security</groupId>-->
+      <!--<artifactId>spring-security-config</artifactId>-->
+      <!--<version>3.0.0.RELEASE</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; Spring Security JSP Taglib &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.security</groupId>-->
+      <!--<artifactId>spring-security-taglibs</artifactId>-->
+      <!--<version>3.0.0.RELEASE</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; jstl for jsp page &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>jstl</groupId>-->
+      <!--<artifactId>jstl</artifactId>-->
+      <!--<version>1.2</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; MySql Driver &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>mysql</groupId>-->
+      <!--<artifactId>mysql-connector-java</artifactId>-->
+      <!--<version>5.1.38</version>-->
+    <!--</dependency>-->
+
+    <!--&lt;!&ndash; logging, slf4j &ndash;&gt;-->
+    <!--<dependency>-->
+      <!--<groupId>org.slf4j</groupId>-->
+      <!--<artifactId>slf4j-api</artifactId>-->
+      <!--<version>1.7.21</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.slf4j</groupId>-->
+      <!--<artifactId>jcl-over-slf4j</artifactId>-->
+      <!--<version>1.7.21</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>ch.qos.logback</groupId>-->
+      <!--<artifactId>logback-classic</artifactId>-->
+      <!--<version>1.1.7</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>javax.servlet</groupId>-->
+      <!--<artifactId>javax.servlet-api</artifactId>-->
+      <!--<version>3.1.0</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.security</groupId>-->
+      <!--<artifactId>spring-security-core</artifactId>-->
+      <!--<version>3.0.0.RELEASE</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.security</groupId>-->
+      <!--<artifactId>spring-security-core</artifactId>-->
+      <!--<version>3.0.0.RELEASE</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.security</groupId>-->
+      <!--<artifactId>spring-security-core</artifactId>-->
+      <!--<version>3.2.6.RELEASE</version>-->
+    <!--</dependency>-->
+
+
+  <!--</dependencies>-->
+
   <build>
     <finalName>bsuir</finalName>
     <plugins>

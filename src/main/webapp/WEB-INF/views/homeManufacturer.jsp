@@ -120,7 +120,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th data-type="number">No</th>
+                    <th data-type="number">№</th>
                     <th data-type="string">Производитель</th>
                     <th></th>
                 </tr>

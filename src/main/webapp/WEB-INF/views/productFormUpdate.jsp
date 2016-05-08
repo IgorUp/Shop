@@ -25,7 +25,7 @@
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Добавить/Редактировать</title>
+    <title>Редактировать</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="<c:url value="/resources/assets/css/bootstrap.min.css"/>">
@@ -119,36 +119,36 @@
     <div class="col-md-12 contact-title">
 
         <div align="center">
-            <h1>New/Edit Contact</h1>
+            <h1>Редактирование</h1>
             <form:form action="updateProduct" method="post" modelAttribute="product">
                 <table>
                     <form:hidden path="id_product"/>
                     <tr>
-                        <td>Prod:</td>
-                        <td><form:input path="id_manufacturer" /></td>
+                        <td>id производителя:</td>
+                        <td><form:input path="id_manufacturer" type="number" min="0"/></td>
                     </tr>
                     <tr>
-                        <td>Prod:</td>
-                        <td><form:input path="id_name" /></td>
+                        <td>id названия:</td>
+                        <td><form:input path="id_name" type="number" min="0"/></td>
                     </tr>
                     <tr>
-                        <td>Prod:</td>
-                        <td><form:input path="model" /></td>
+                        <td>Модель:</td>
+                        <td><form:input path="model" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
                     </tr>
                     <tr>
-                        <td>Prod:</td>
-                        <td><form:input path="number" /></td>
+                        <td>Количество:</td>
+                        <td><form:input path="number" type="number" min="0"/></td>
                     </tr>
                     <tr>
-                        <td>Prod:</td>
-                        <td><form:input path="cost" /></td>
+                        <td>Стоимость:</td>
+                        <td><form:input path="cost" type="number" min="0"/></td>
                     </tr>
                     <tr>
-                        <td>Prod:</td>
+                        <td>URL:</td>
                         <td><form:input path="picture" /></td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center"><input type="submit" value="Save"></td>
+                        <td colspan="2" align="center"><input type="submit" value="Сохранить"></td>
                     </tr>
                 </table>
             </form:form>

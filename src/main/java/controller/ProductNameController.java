@@ -6,6 +6,7 @@ package controller;
         import javax.servlet.http.HttpServletRequest;
 
         import dao.ManufacturerDao;
+        import dao.ProductNameDao;
         import dao.UserDao;
         import domain.Manufacturer;
         import domain.ProductName;
@@ -27,13 +28,16 @@ package controller;
 @Controller
 public class ProductNameController {
 
+//    @Autowired
+//    private ProductNameService productNameService;
+
     @Autowired
-    private ProductNameService productNameService;
+    private ProductNameDao productNameDao;
 
     @RequestMapping(value="/homeProductName")
     @ResponseBody
     public ModelAndView listProductname(ModelAndView model) throws IOException {
-        List<ProductName> listProductName = productNameService.listProductName();
+        List<ProductName> listProductName = productNameDao.listProductName();
         model.addObject("listProductName", listProductName);
         model.setViewName("homeProductName");
 
@@ -61,14 +65,14 @@ public class ProductNameController {
     @RequestMapping(value = "/addProductName", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView addProductName(@ModelAttribute ProductName productName) {
-        productNameService.add(productName);
+        productNameDao.add(productName);
         return new ModelAndView("redirect:/");
     }
 
     @RequestMapping(value = "/updateProductName", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView updateProductName(@ModelAttribute ProductName productName) {
-        productNameService.upd(productName);
+        productNameDao.upd(productName);
         return new ModelAndView("redirect:/");
     }
 
@@ -76,7 +80,7 @@ public class ProductNameController {
     @ResponseBody
     public ModelAndView deleteProductName(HttpServletRequest request) {
         int productName_id = Integer.parseInt(request.getParameter("id"));
-        productNameService.delete(productName_id);
+        productNameDao.delete(productName_id);
         return new ModelAndView("redirect:/");
     }
 
@@ -84,7 +88,7 @@ public class ProductNameController {
     @ResponseBody
     public ModelAndView editProductName(HttpServletRequest request) {
         int productName_id = Integer.parseInt(request.getParameter("id"));
-        ProductName product_Name = productNameService.get(productName_id);
+        ProductName product_Name = productNameDao.get(productName_id);
         ModelAndView model = new ModelAndView("productNameFormUpdate");
         model.addObject("product_name", product_Name);
         return model;

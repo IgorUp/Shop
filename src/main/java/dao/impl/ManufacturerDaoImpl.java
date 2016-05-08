@@ -68,6 +68,8 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
         });
     }
 
+
+
     @Override
     public List<Manufacturer> listManufacturers() {
         String sql = "SELECT * FROM manufacturer";

@@ -1,5 +1,6 @@
 package controller;
 
+import dao.OrderDao;
 import domain.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import service.OrderService;
-import service.ProductNameService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -21,13 +21,16 @@ import java.util.List;
 @Controller
 public class OrderController {
 
+//    @Autowired
+//    private OrderService orderService;
+
     @Autowired
-    private OrderService orderService;
+    private OrderDao orderDao;
 
     @RequestMapping(value="/homeOrder")
     @ResponseBody
     public ModelAndView listOrder(ModelAndView model) throws IOException {
-        List<Order> listOrder = orderService.listOrder();
+        List<Order> listOrder = orderDao.listOrder();
         model.addObject("listOrder", listOrder);
         model.setViewName("homeOrder");
 
@@ -55,14 +58,14 @@ public class OrderController {
     @RequestMapping(value = "/addOrder", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView addOrder(@ModelAttribute Order order) {
-        orderService.add(order);
+        orderDao.add(order);
         return new ModelAndView("redirect:/");
     }
 
     @RequestMapping(value = "/updateOrder", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView updateOrder(@ModelAttribute Order order) {
-        orderService.upd(order);
+        orderDao.upd(order);
         return new ModelAndView("redirect:/");
     }
 
@@ -70,7 +73,7 @@ public class OrderController {
     @ResponseBody
     public ModelAndView deleteOrder(HttpServletRequest request) {
         int order_id = Integer.parseInt(request.getParameter("id_order"));
-        orderService.delete(order_id);
+        orderDao.delete(order_id);
         return new ModelAndView("redirect:/");
     }
 
@@ -78,7 +81,7 @@ public class OrderController {
     @ResponseBody
     public ModelAndView editOrder(HttpServletRequest request) {
         int order_id = Integer.parseInt(request.getParameter("id_order"));
-        Order order = orderService.get(order_id);
+        Order order = orderDao.get(order_id);
         ModelAndView model = new ModelAndView("orderFormUpdate");
         model.addObject("order", order);
         return model;

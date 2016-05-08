@@ -123,7 +123,7 @@
                     <form:hidden path="id_manufacturer"/>
                     <tr>
                         <td>Manufacturer:</td>
-                        <td><form:input path="manufacturer_name" /></td>
+                        <td><form:input path="manufacturer_name" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center"><input type="submit" value="Save"></td>

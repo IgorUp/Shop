@@ -25,7 +25,7 @@
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Добавить/Редактировать</title>
+    <title>Добавить</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="<c:url value="/resources/assets/css/bootstrap.min.css"/>">
@@ -119,16 +119,16 @@
     <div class="col-md-12 contact-title">
 
         <div align="center">
-            <h1>New/Edit Contact</h1>
+            <h1>Добавление</h1>
             <form:form action="addProductName" method="post" modelAttribute="product_name">
                 <table>
                     <form:hidden path="id"/>
                     <tr>
-                        <td>Prod:</td>
-                        <td><form:input path="product_name" /></td>
+                        <td>Название:</td>
+                        <td><form:input path="product_name" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center"><input type="submit" value="Save"></td>
+                        <td colspan="2" align="center"><input type="submit" value="Сохранить"></td>
                     </tr>
                 </table>
             </form:form>

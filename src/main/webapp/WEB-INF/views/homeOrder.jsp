@@ -122,9 +122,9 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>id prod</th>
-                    <th>id user</th>
-                    <th>number of product</th>
+                    <th>id товара</th>
+                    <th>id пользователя</th>
+                    <th>Количество</th>
                     <th></th>
                 </tr>
                 </thead>

@@ -1,5 +1,6 @@
 package controller;
 
+import dao.ProductDao;
 import domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,13 +21,16 @@ import java.util.List;
 @Controller
 public class ProductController {
 
+//    @Autowired
+//    private ProductService productService;
+
     @Autowired
-    private ProductService productService;
+    private ProductDao productDao;
 
     @RequestMapping(value="/homeProduct")
     @ResponseBody
     public ModelAndView listProduct(ModelAndView model) throws IOException {
-        List<Product> listProduct = productService.listProduct();
+        List<Product> listProduct = productDao.listProduct();
         model.addObject("listProduct", listProduct);
         model.setViewName("homeProduct");
 
@@ -54,14 +58,14 @@ public class ProductController {
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView addProduct(@ModelAttribute Product product) {
-        productService.add(product);
+        productDao.add(product);
         return new ModelAndView("redirect:/");
     }
 
     @RequestMapping(value = "/updateProduct", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView updateProduct(@ModelAttribute Product product) {
-        productService.upd(product);
+        productDao.upd(product);
         return new ModelAndView("redirect:/");
     }
 
@@ -69,7 +73,7 @@ public class ProductController {
     @ResponseBody
     public ModelAndView deleteProduct(HttpServletRequest request) {
         int product_id = Integer.parseInt(request.getParameter("id_product"));
-        productService.delete(product_id);
+        productDao.delete(product_id);
         return new ModelAndView("redirect:/");
     }
 
@@ -77,7 +81,7 @@ public class ProductController {
     @ResponseBody
     public ModelAndView editProduct(HttpServletRequest request) {
         int product_id = Integer.parseInt(request.getParameter("id_product"));
-        Product product = productService.get(product_id);
+        Product product = productDao.get(product_id);
         ModelAndView model = new ModelAndView("productFormUpdate");
         model.addObject("product", product);
         return model;

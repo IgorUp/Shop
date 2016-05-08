@@ -38,7 +38,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> listOrder() {
+    public List<Order> listOder() {
         return orderDao.listOrder();
     }
+
 }

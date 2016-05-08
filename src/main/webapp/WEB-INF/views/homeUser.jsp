@@ -22,7 +22,7 @@
 		<meta name="keywords" content="MediaCenter, Template, eCommerce">
 		<meta name="robots" content="all">
 
-		<title>Работа с товарами</title>
+		<title>Работа с пользователями</title>
 
 		<!-- Bootstrap Core CSS -->
 		<link rel="stylesheet" href="<c:url value="/resources/assets/css/bootstrap.min.css"/>">
@@ -124,9 +124,9 @@
 					<%--<th data-type="number">Роль</th>--%>
 					<th data-type="string">Имя</th>
 					<th data-type="string">Фамилия</th>
-					<%--<th data-type="string">Личный номер(номер в паспорте)</th>--%>
+					<%--<th data-type="string">Пароль</th>--%>
 					<th data-type="number">Телефон</th>
-					<%--<th data-type="string">Login</th>--%>
+					<%--<th data-type="string">Логин</th>--%>
 					<th></th>
 					</thead>
 					<tbody>

@@ -65,7 +65,6 @@
 		<div class="header-top-inner">
 			<div class="cnt-account">
 				<ul class="list-unstyled">
-					<li><a href="account"><i class="icon fa fa-user"></i>Мой аккаунт</a></li>
 					<li><a href="shopping-cart"><i class="icon fa fa-shopping-cart"></i>Корзина</a></li>
 					<li><a href="signin"><i class="icon fa fa-sign-in"></i>Вход</a></li>
 				</ul>

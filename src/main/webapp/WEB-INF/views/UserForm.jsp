@@ -25,7 +25,7 @@
 	<meta name="keywords" content="MediaCenter, Template, eCommerce">
 	<meta name="robots" content="all">
 
-	<title>Добавить/Редактировать</title>
+	<title>Работа с пользователями</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="<c:url value="/resources/assets/css/bootstrap.min.css"/>">
@@ -119,36 +119,36 @@
 	<div class="col-md-12 contact-title">
 
 		<div align="center">
-			<h1>New/Edit Contact</h1>
+			<h1>Работа с пользователями</h1>
 			<form:form action="saveUser" method="post" modelAttribute="user">
 				<table>
 					<form:hidden path="id_user"/>
 					<%--<tr>--%>
-						<%--<td>Role:</td>--%>
-						<%--<td><form:input path="role" /></td>--%>
+						<%--<td>Роль:</td>--%>
+						<%--<td><form:input path="role" type="number" pattern="\d [0-1]"/></td>--%>
 					<%--</tr>--%>
 					<tr>
-						<td>Name:</td>
-						<td><form:input path="name" /></td>
+						<td>Имя:</td>
+						<td><form:input path="name" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
 					</tr>
 					<tr>
-						<td>Surname:</td>
-						<td><form:input path="surname" /></td>
-					</tr>
-					<%--<tr>--%>
-						<%--<td>Password:</td>--%>
-						<%--<td><form:input path="password" /></td>--%>
-					<%--</tr>--%>
-					<tr>
-						<td>Telephone:</td>
-						<td><form:input path="phone_number" /></td>
+						<td>Фамилия:</td>
+						<td><form:input path="surname" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
 					</tr>
 					<%--<tr>--%>
-						<%--<td>Login:</td>--%>
-						<%--<td><form:input path="login" /></td>--%>
+						<%--<td>Пароль:</td>--%>
+						<%--<td><form:input path="password" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>--%>
 					<%--</tr>--%>
 					<tr>
-						<td colspan="2" align="center"><input type="submit" value="Save"></td>
+						<td>Телефон:</td>
+						<td><form:input path="phone_number" pattern="[0-9]{11}"/></td>
+					</tr>
+					<%--<tr>--%>
+						<%--<td>Логин:</td>--%>
+						<%--<td><form:input path="login" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>--%>
+					<%--</tr>--%>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="Сохранить"></td>
 					</tr>
 				</table>
 			</form:form>

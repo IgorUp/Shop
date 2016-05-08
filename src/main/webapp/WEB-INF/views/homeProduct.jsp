@@ -122,12 +122,12 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>id manuf</th>
-                    <th>id name</th>
-                    <th>model</th>
-                    <th>number</th>
-                    <th>cons</th>
-                    <th>pricture</th>
+                    <th>id производителя</th>
+                    <th>id названия</th>
+                    <th>Модель</th>
+                    <th>Количество</th>
+                    <th>Стоимость</th>
+                    <th>Изображение</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -142,7 +142,7 @@
                         <td>${product.cost}</td>
                         <td><img src="<c:url value="/resources/assets/images/${product.picture}"/>" alt="" width="225"></td>
                         <td>
-                            <a href="editProduct?id_product=${product.id_product}">Редакь</a>
+                            <a href="editProduct?id_product=${product.id_product}">Редактировать</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="deleteProduct?id_product=${product.id_product}">Удалить</a>
                         </td>

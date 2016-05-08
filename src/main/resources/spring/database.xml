@@ -7,9 +7,6 @@
 
     <context:component-scan base-package="dao"/>
     <context:component-scan base-package="dao.impl"/>
-    <context:component-scan base-package="service"/>
-    <context:component-scan base-package="service.impl"/>
-
 
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -18,12 +15,12 @@
 
     <!-- Initialization for data source -->
     <!--<bean id="dataSource"-->
-          <!--class="org.apache.commons.dbcp.BasicDataSource">-->
-        <!--<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>-->
-        <!--<property name="url" value="jdbc:oracle:thin:@10.20.2.231:1521:DEVNOTA"/>-->
-        <!--<property name="username" value="migration"/>-->
-        <!--<property name="password" value="migration"/>-->
-        <!--&lt;!&ndash;<property name="defaultAutoCommit" value="false" />&ndash;&gt;-->
+    <!--class="org.apache.commons.dbcp.BasicDataSource">-->
+    <!--<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>-->
+    <!--<property name="url" value="jdbc:oracle:thin:@10.20.2.231:1521:DEVNOTA"/>-->
+    <!--<property name="username" value="migration"/>-->
+    <!--<property name="password" value="migration"/>-->
+    <!--&lt;!&ndash;<property name="defaultAutoCommit" value="false" />&ndash;&gt;-->
     <!--</bean>-->
 
     <bean id="dataSource"

@@ -66,7 +66,6 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="account"><i class="icon fa fa-user"></i>Мой аккаунт</a></li>
                         <li><a href="shopping-cart"><i class="icon fa fa-shopping-cart"></i>Корзина</a></li>
                         <li><a href="signin"><i class="icon fa fa-sign-in"></i>Вход</a></li>
                     </ul>
@@ -431,18 +430,10 @@
 
                         </div>
                         <!-- /.item -->
-
-                        <div class="item" style="background-image: url(/resources/assets/images/sliders/2.jpg);">
-                            <div class="container-fluid">
-                                <div class="caption bg-color vertical-center text-left">
-                                    <div class="big-text fadeInDown-1">
-
-                                    </div>
-                                </div>
-                                <!-- /.caption -->
-                            </div>
+<div>
+                        <img class="item" src="<c:url value="/resources/assets/images/sliders/02.jpg"/>">
+</div>
                             <!-- /.container-fluid -->
-                        </div>
                         <!-- /.item -->
 
 
@@ -483,7 +474,7 @@
                         <div class="col-md-7">
                             <div class="wide-banner cnt-strip">
                                 <div class="image">
-                                    <img class="img-responsive" data-echo="assets/images/banners/1.jpg" src="assets/images/blank.gif" alt="">
+                                    <img class="img-responsive" data-echo="<c:url value="/resources/assets/images/banners/1.jpg"/>" src="<c:url value="resources/assets/images/blank.gif"/>" alt="">
                                 </div>
 
                             </div>
@@ -494,7 +485,7 @@
                         <div class="col-md-5">
                             <div class="wide-banner cnt-strip">
                                 <div class="image">
-                                    <img class="img-responsive" data-echo="assets/images/banners/2.jpg" src="assets/images/blank.gif" alt="">
+                                    <img class="img-responsive" data-echo="<c:url value="/resources/assets/images/banners/2.jpg"/>" src="<c:url value="resources/assets/images/blank.gif"/>" alt="">
                                 </div>
 
                             </div>
@@ -516,7 +507,7 @@
                         <div class="col-md-12">
                             <div class="wide-banner cnt-strip">
                                 <div class="image">
-                                    <img class="img-responsive" data-echo="assets/images/banners/3.jpg" src="assets/images/blank.gif" alt="">
+                                    <img class="img-responsive" data-echo="<c:url value="/resources/assets/images/banners/3.jpg"/>" src="<c:url value="resources/assets/images/blank.gif"/>" alt="">
                                 </div>
 
                                 <div class="new-label">
