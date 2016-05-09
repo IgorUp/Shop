@@ -12,11 +12,10 @@ public interface UserDao {
 
     void upd(User user);
 
-    void delete(Integer user_id);
+    void delete(String user_id);
 
-    User get(Integer user_id);
+    User get(String user_id);
 
     List<User> listUsers();
 
-    void chek(String login, String password);
 }

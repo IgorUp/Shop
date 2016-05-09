@@ -11,6 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page session="true"%>
 
 <html>
 <head>
@@ -51,6 +52,11 @@
     <![endif]-->
 </head>
 <body class="cnt-home">
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+<form action="${logoutUrl}" method="post" id="logoutForm">
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}" />
+</form>
 <header class="header-style-1">
 
     <!-- ============================================== TOP MENU ============================================== -->
@@ -59,10 +65,11 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
-                        <li><a href="admin_tovar"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
-                        <li><a href="admin_manufact"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
-                        <li><a href="admin_order"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
+                        <li><a href="homeUser"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
+                        <li><a href="homeManufacturer"><i class="icon fa fa-folder-open"></i>Работа с производителем</a></li>
+                        <li><a href="homeProductName"><i class="icon fa fa-folder-open"></i>Работа с наименованиями продуктов</a></li>
+                        <li><a href="homeProduct"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
+                        <li><a href="homeOrder"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
                     </ul>
                 </div><!-- /.cnt-account -->
 
@@ -117,16 +124,26 @@
     <div class="col-md-12 contact-title">
 
         <div align="center">
-            <h1>Добавление/Редактирование</h1>
-            <form:form action="saveManufacturer2" method="post" modelAttribute="manufacturer">
+            <form:form method="get" modelAttribute="product">
                 <table>
-                    <form:hidden path="id_manufacturer"/>
+                    <form:hidden path="id_product"/>
                     <tr>
-                        <td>Manufacturer:</td>
-                        <td><form:input path="manufacturer_name" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
+                        <td>Модель:</td>
+                        <td><form:input path="model" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center"><input type="submit" value="Save"></td>
+                        <td>Количество:</td>
+                        <td><form:input path="number" type="number" min="0"/></td>
+                    </tr>
+                    <tr>
+                        <td>Стоимость:</td>
+                        <td><form:input path="cost" type="number" min="0"/></td>
+                    </tr>
+                    <tr>
+                        <td>URL:</td>
+                        <td><form:input path="picture" /></td>
+                    </tr>
+                    <tr>
                     </tr>
                 </table>
             </form:form>
@@ -143,7 +160,7 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="copyright">
                     Copyright © 2016
-                    <a href="home">O•P•I</a>
+                    <a href="/bsuir">O•P•I</a>
                     - Все права защищены
                 </div>
             </div>

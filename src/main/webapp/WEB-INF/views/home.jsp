@@ -9,6 +9,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page session="true"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +55,11 @@
 
 </head>
 <body class="cnt-home" >
-
-
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+<form action="${logoutUrl}" method="post" id="logoutForm">
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}" />
+</form>
 
 <!-- ============================================== HEADER ============================================== -->
 <header class="header-style-1">
@@ -66,8 +70,28 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="shopping-cart"><i class="icon fa fa-shopping-cart"></i>Корзина</a></li>
-                        <li><a href="signin"><i class="icon fa fa-sign-in"></i>Вход</a></li>
+                        <li><c:if test="${pageContext.request.userPrincipal.name == null}">
+                            <a href="login"><i class="icon fa fa-sign-in"></i>Вход</a>
+                        </c:if>
+                            <script>
+                                function formSubmit() {
+                                    document.getElementById("logoutForm").submit();
+                                }
+                            </script>
+                            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <a>
+                                    User : ${pageContext.request.userPrincipal.name} | <a
+                                        href="javascript:formSubmit()"> Выход</a>
+                                </a>
+                            </c:if>
+                            <c:if test="${pageContext.request.userPrincipal.name == 'igor'}">
+                        <li><a href="homeUser"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
+                        <li><a href="homeManufacturer"><i class="icon fa fa-folder-open"></i>Работа с производителем</a></li>
+                        <li><a href="homeProductName"><i class="icon fa fa-folder-open"></i>Работа с наименованиями продуктов</a></li>
+                        <li><a href="homeProduct"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
+                        <li><a href="homeOrder"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
+                            </c:if>
+                            </li>
                     </ul>
                 </div>
                 <!-- /.cnt-account -->
@@ -86,7 +110,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
                     <div class="logo">
-                        <a href="home">
+                        <a href="/bsuir">
 
                             <img src="<c:url value="/resources/assets/images/1.png"/>" alt="" width="225">
                         </a>
@@ -136,19 +160,19 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 animate-dropdown top-cart-row">
                     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
-                    <div class="dropdown dropdown-cart">
-                        <a href="shopping-cart" class="dropdown-toggle lnk-cart">
-                            <div class="items-cart-inner">
-                                <div class="total-price-basket">
-                                    <span class="lbl">Корзина</span>
-                                    <span class="total-price"></span>
-                                </div>
-                                <div class="basket">
-                                    <i class="glyphicon glyphicon-shopping-cart"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <%--<div class="dropdown dropdown-cart">--%>
+                        <%--<a href="shopping-cart" class="dropdown-toggle lnk-cart">--%>
+                            <%--<div class="items-cart-inner">--%>
+                                <%--<div class="total-price-basket">--%>
+                                    <%--<span class="lbl">Корзина</span>--%>
+                                    <%--<span class="total-price"></span>--%>
+                                <%--</div>--%>
+                                <%--<div class="basket">--%>
+                                    <%--<i class="glyphicon glyphicon-shopping-cart"></i>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</a>--%>
+                    <%--</div>--%>
                     <!-- /.dropdown-cart -->
                     <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
                 </div>
@@ -179,7 +203,7 @@
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw">
-                                    <a href="home">Главная</a>
+                                    <a href="/bsuir">Главная</a>
                                     <ul class="dropdown-menu">
                                         <div class="yamm-content">
                                             </li>
@@ -202,7 +226,11 @@
                                     <a href="contact">Контакты</a>
                                 </li>
 
-
+                                <li class="dropdown">
+                                    <a href="chart">Статистика</a>
+                                </li><li class="dropdown">
+                                <a href="test">Тест</a>
+                            </li>
                             </ul><!-- /.navbar-nav -->
                             <div class="clearfix"></div>
                         </div>
@@ -556,7 +584,7 @@
                     <div class="contact-info">
                         <div class="footer-logo">
                             <div class="logo">
-                                <a href="home">
+                                <a href="/bsuir">
 
                                     <img src="assets/images/1.png" alt="" width="215">
                                 </a>
@@ -699,7 +727,7 @@
                 <div class="copyright">
                     Copyright © 2016
 
-                    <a href="home">O•P•I</a>
+                    <a href="/bsuir">O•P•I</a>
                     - Все права защищены
 
                 </div>

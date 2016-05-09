@@ -65,8 +65,8 @@ To change this template use File | Settings | File Templates.
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="shopping-cart.html"><i class="icon fa fa-shopping-cart"></i>Корзина</a></li>
-                        <li><a href="signin.html"><i class="icon fa fa-sign-in"></i>Вход</a></li>
+                        <%--<li><a href="shopping-cart.html"><i class="icon fa fa-shopping-cart"></i>Корзина</a></li>--%>
+                        <%--<li><a href="signin.html"><i class="icon fa fa-sign-in"></i>Вход</a></li>--%>
                     </ul>
                 </div>
                 <!-- /.cnt-account -->
@@ -85,7 +85,7 @@ To change this template use File | Settings | File Templates.
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
                     <div class="logo">
-                        <a href="home.html">
+                        <a href="/bsuir">
 
                             <img src="<c:url value="/resources/assets/images/1.png"/>" alt="" width="225">
                         </a>
@@ -135,19 +135,19 @@ To change this template use File | Settings | File Templates.
                 <div class="col-xs-12 col-sm-12 col-md-3 animate-dropdown top-cart-row">
                     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
-                    <div class="dropdown dropdown-cart">
-                        <a href="shopping-cart.html" class="dropdown-toggle lnk-cart">
-                            <div class="items-cart-inner">
-                                <div class="total-price-basket">
-                                    <span class="lbl">Корзина</span>
-                                    <span class="total-price"></span>
-                                </div>
-                                <div class="basket">
-                                    <i class="glyphicon glyphicon-shopping-cart"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <%--<div class="dropdown dropdown-cart">--%>
+                        <%--<a href="shopping-cart.html" class="dropdown-toggle lnk-cart">--%>
+                            <%--<div class="items-cart-inner">--%>
+                                <%--<div class="total-price-basket">--%>
+                                    <%--<span class="lbl">Корзина</span>--%>
+                                    <%--<span class="total-price"></span>--%>
+                                <%--</div>--%>
+                                <%--<div class="basket">--%>
+                                    <%--<i class="glyphicon glyphicon-shopping-cart"></i>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</a>--%>
+                    <%--</div>--%>
                     <!-- /.dropdown-cart -->
                     <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
                 </div>
@@ -178,7 +178,7 @@ To change this template use File | Settings | File Templates.
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw">
-                                    <a href="home.html">Главная</a>
+                                    <a href="/bsuir">Главная</a>
                                     <ul class="dropdown-menu">
                                         <div class="yamm-content">
                                         </div>
@@ -199,7 +199,11 @@ To change this template use File | Settings | File Templates.
                                 <li class="dropdown">
                                     <a href="contact.html">Контакты</a>
                                 </li>
-
+                                <li class="dropdown">
+                                    <a href="chart">Статистика</a>
+                                </li><li class="dropdown">
+                                <a href="test">Тест</a>
+                            </li>
 
                             </ul><!-- /.navbar-nav -->
                             <div class="clearfix"></div>
@@ -300,7 +304,7 @@ To change this template use File | Settings | File Templates.
                             <td>${ups.model}</td>
                             <td>${ups.cost}</td>
                             <td>
-                                <a href="shopping-cart">Заказать</a> <!--НЕ ЗНАЕМ КАКАЯ ССЫЛКА!!!!ТУТ ПЕРЕНОС ДАННЫХ В ТАБЛИЦУ КОРЗИНА.ЕСЛИ ЮЗЕР НЕ ЗАРЕГАННЫЙ.ТО ПУСТЬ ВЫЛАЗИТ АЛЕРТ.НУ ИЛИ САМ ЧТО-НИБУДЬ ПРИДУМАЙ-->
+                                <a href="shopping-cart?id_product=${ups.id_product}">Заказать</a> <!--НЕ ЗНАЕМ КАКАЯ ССЫЛКА!!!!ТУТ ПЕРЕНОС ДАННЫХ В ТАБЛИЦУ КОРЗИНА.ЕСЛИ ЮЗЕР НЕ ЗАРЕГАННЫЙ.ТО ПУСТЬ ВЫЛАЗИТ АЛЕРТ.НУ ИЛИ САМ ЧТО-НИБУДЬ ПРИДУМАЙ-->
                             </td>
                         </tr>
                     </c:forEach>
@@ -330,7 +334,7 @@ To change this template use File | Settings | File Templates.
                     <div class="contact-info">
                         <div class="footer-logo">
                             <div class="logo">
-                                <a href="home">
+                                <a href="/bsuir">
 
                                     <img src="<c:url value="/resources/assets/images/1.png"/>" alt="" width="225">
                                 </a>
@@ -473,7 +477,7 @@ To change this template use File | Settings | File Templates.
                 <div class="copyright">
                     Copyright © 2016
 
-                    <a href="home">O•P•I</a>
+                    <a href="/bsuir">O•P•I</a>
                     - Все права защищены
 
                 </div>

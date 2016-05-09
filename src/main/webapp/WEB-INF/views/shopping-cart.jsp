@@ -9,6 +9,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="sec"
+		  uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -52,8 +55,14 @@
 
 	</head>
     <body class="cnt-home">
-	
-		
+
+	<sec:authorize access="hasRole('ROLE_USER')">
+	<!-- For login user -->
+	<c:url value="/j_spring_security_logout" var="logoutUrl" />
+	<form action="${logoutUrl}" method="post" id="logoutForm">
+		<input type="hidden" name="${_csrf.parameterName}"
+			   value="${_csrf.token}" />
+	</form>
 	
 		<!-- ============================================== HEADER ============================================== -->
 <header class="header-style-1">
@@ -64,8 +73,21 @@
 		<div class="header-top-inner">
 			<div class="cnt-account">
 				<ul class="list-unstyled">
-					<li><a href="shopping-cart.html"><i class="icon fa fa-shopping-cart"></i>Корзина</a></li>
-					<li><a href="signin.html"><i class="icon fa fa-sign-in"></i>Вход</a></li>
+					<li><c:if test="${pageContext.request.userPrincipal.name == null}">
+						<a href="login"><i class="icon fa fa-sign-in"></i>Вход</a>
+					</c:if>
+						<script>
+							function formSubmit() {
+								document.getElementById("logoutForm").submit();
+							}
+						</script>
+						<c:if test="${pageContext.request.userPrincipal.name != null}">
+							<a>
+								User : ${pageContext.request.userPrincipal.name} | <a
+									href="javascript:formSubmit()"> Выход</a>
+							</a>
+						</c:if>
+					</li>
 				</ul>
 			</div><!-- /.cnt-account -->
 
@@ -80,7 +102,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
 					<!-- ============================================================= LOGO ============================================================= -->
 <div class="logo">
-	<a href="home.html">
+	<a href="/bsuir">
 		
 		 <img src="<c:url value="/resources/assets/images/1.png"/>" alt="" width="225">
 
@@ -123,21 +145,21 @@
 				<div class="col-xs-12 col-sm-12 col-md-3 animate-dropdown top-cart-row">
 					<!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
-	<div class="dropdown dropdown-cart">
-		<a href="shopping-cart.html" class="dropdown-toggle lnk-cart" >
-			<div class="items-cart-inner">
-				<div class="total-price-basket">
-					<span class="lbl">Корзина</span>
-					<span class="total-price">
+	<%--<div class="dropdown dropdown-cart">--%>
+		<%--<a href="shopping-cart.html" class="dropdown-toggle lnk-cart" >--%>
+			<%--<div class="items-cart-inner">--%>
+				<%--<div class="total-price-basket">--%>
+					<%--<span class="lbl">Корзина</span>--%>
+					<%--<span class="total-price">--%>
 
-					</span>
-				</div>
-				<div class="basket">
-					<i class="glyphicon glyphicon-shopping-cart"></i>
-				</div>
-		    </div>
-		</a>
-	</div><!-- /.dropdown-cart -->
+					<%--</span>--%>
+				<%--</div>--%>
+				<%--<div class="basket">--%>
+					<%--<i class="glyphicon glyphicon-shopping-cart"></i>--%>
+				<%--</div>--%>
+		    <%--</div>--%>
+		<%--</a>--%>
+	<%--</div><!-- /.dropdown-cart -->--%>
 <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->				</div><!-- /.top-cart-row -->
 			</div><!-- /.row -->
 
@@ -162,7 +184,7 @@
 	<div class="nav-outer">
 		<ul class="nav navbar-nav">
 			<li class="dropdown yamm-fw">
-				<a href="home.html">Главная</a>
+				<a href="/bsuir">Главная</a>
 				<ul class="dropdown-menu">
 						<div class="yamm-content"> 
 		</div>
@@ -184,7 +206,11 @@
 			<li class="dropdown">
 				<a href="contact.html">Контакты</a>
 			</li>
-			
+			<li class="dropdown">
+				<a href="chart">Статистика</a>
+			</li><li class="dropdown">
+			<a href="test">Тест</a>
+		</li>
 			
 		</ul><!-- /.navbar-nav -->
 		<div class="clearfix"></div>				
@@ -210,43 +236,70 @@
 			<div class="shopping-cart">
 				<div class="col-md-12 col-sm-12 shopping-cart-table ">
 	<div class="table-responsive">
-		<table class="table table-bordered">
-			<thead>
+		<form:form action="addUps" method="post" modelAttribute="ups">
+			<table>
+				<form:hidden path="id_product"/>
 				<tr>
-					<th class="cart-romove item">Удаление</th>
-					<th class="cart-description item">Изображение</th>
-					<th class="cart-product-name item">Производитель</th>
-					<th class="cart-product-name item">Модель</th>
-                    <th class="cart-product-quantity">Количество</th>
-					<th class="cart-sub-total item">Цена</th>
+					<td>Производитель:</td>
+					<td><form:input class="form-control" path="manufacturer_name" /></td>
 				</tr>
-			</thead><!-- /thead -->
-			<tbody>
-			<c:forEach var="zakaz" items="${listShoppingCard}" varStatus="status">
-                        <tr>
-                            <td>Удалить</td>
-                            <td><img src="<c:url value="/resources/assets/images/${zakaz.picture}"/>" alt="" width="225"></td> 
-							<td>${zakaz.manufacturer_name}</td>
-                            <td>${zakaz.model}</td>
-							<td>${zakaz.number}</td>
-                            <td>${zakaz.cost}</td>
-                        </tr>
-                    </c:forEach>
-			</tbody>
-			<tfoot>
 				<tr>
-					<td colspan="7">
-						<div class="shopping-cart-btn">
-							<span class="">
-								<a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Оформить заказ</a>
-							</span>
-						</div><!-- /.shopping-cart-btn -->
-					</td>
+					<td>Картинка:</td>
+					<td><form:input class="form-control" path="picture" /></td>
 				</tr>
-			</tfoot>
-			<tbody>
-			</tbody><!-- /tbody -->
-		</table><!-- /table -->
+				<tr>
+					<td>Модель:</td>
+					<td><form:input class="form-control" path="model" /></td>
+				</tr>
+				<tr>
+					<td>Стоимость</td>
+					<td><form:input class="form-control" path="cost" /></td>
+				</tr>
+				<td>Пользователь</td>
+				<td><form:input class="form-control" path="login" value="${pageContext.request.userPrincipal.name}" /></td>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="Заказать"></td>
+				</tr>
+			</table>
+		</form:form>
+		<%--<table class="table table-bordered">--%>
+			<%--<thead>--%>
+				<%--<tr>--%>
+					<%--<th class="cart-romove item">Номер</th>--%>
+					<%--<th class="cart-description item">Изображение</th>--%>
+					<%--<th class="cart-product-name item">Производитель</th>--%>
+					<%--<th class="cart-product-name item">Модель</th>--%>
+                    <%--<th class="cart-product-quantity">Количество</th>--%>
+					<%--&lt;%&ndash;<th class="cart-sub-total item">Цена</th>&ndash;%&gt;--%>
+				<%--</tr>--%>
+			<%--</thead><!-- /thead -->--%>
+			<%--<tbody>--%>
+			<%--<form:form  method="get" modelAttribute="ups">--%>
+				<%--<table>--%>
+					<%--<form:hidden path="id_product"/>--%>
+					<%--<tr>--%>
+						<%--<td>Id prod:</td>--%>
+						<%--<td><form:input path="id_product"/></td>--%>
+					<%--</tr>--%>
+					<%--<tr>--%>
+					<%--</tr>--%>
+				<%--</table>--%>
+			<%--</form:form>--%>
+			<%--</tbody>--%>
+			<%--<tfoot>--%>
+				<%--<tr>--%>
+					<%--<td colspan="7">--%>
+						<%--<div class="shopping-cart-btn">--%>
+							<%--<span class="">--%>
+								<%--<a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Оформить заказ</a>--%>
+							<%--</span>--%>
+						<%--</div><!-- /.shopping-cart-btn -->--%>
+					<%--</td>--%>
+				<%--</tr>--%>
+			<%--</tfoot>--%>
+			<%--<tbody>--%>
+			<%--</tbody><!-- /tbody -->--%>
+		<%--</table><!-- /table -->--%>
 	</div>
 </div><!-- /.shopping-cart-table -->				<div class="col-md-4 col-sm-12 estimate-ship-tax">
 	
@@ -270,7 +323,7 @@
 <div class="contact-info">
     <div class="footer-logo">
         <div class="logo">
-            <a href="home.html">
+            <a href="/bsuir">
                 
                  <img src="<c:url value="/resources/assets/images/1.png"/>" alt="" width="215">
 
@@ -376,7 +429,7 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="copyright">
                    Copyright © 2016
-                    <a href="home.html">O•P•I</a>
+                    <a href="/bsuir">O•P•I</a>
                     - Все права защищены
                 </div>
             </div>
@@ -424,7 +477,7 @@
 	</script>
 	<!-- For demo purposes – can be removed on production : End -->
 
-	
 
+	</sec:authorize>
 </body>
 </html>

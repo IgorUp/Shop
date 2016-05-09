@@ -10,6 +10,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page session="true"%>
 
 <html>
 <head>
@@ -50,6 +51,11 @@
     <![endif]-->
 </head>
 <body class="cnt-home">
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+<form action="${logoutUrl}" method="post" id="logoutForm">
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}" />
+</form>
 <header class="header-style-1">
 
     <!-- ============================================== TOP MENU ============================================== -->
@@ -58,10 +64,11 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
-                        <li><a href="admin_tovar"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
-                        <li><a href="admin_manufact"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
-                        <li><a href="admin_order"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
+                        <li><a href="homeUser"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
+                        <li><a href="homeManufacturer"><i class="icon fa fa-folder-open"></i>Работа с производителем</a></li>
+                        <li><a href="homeProductName"><i class="icon fa fa-folder-open"></i>Работа с наименованиями продуктов</a></li>
+                        <li><a href="homeProduct"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
+                        <li><a href="homeOrder"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
                     </ul>
                 </div><!-- /.cnt-account -->
 
@@ -117,29 +124,32 @@
 
         <div align="center">
             <h1>Список</h1>
-            <h3><a href="newOrderAdd">Новый заказ</a></h3>
+            <%--<h3><a href="newOrderAdd">Новый заказ</a></h3>--%>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>id товара</th>
-                    <th>id пользователя</th>
-                    <th>Количество</th>
-                    <th></th>
+                    <th>Производитель</th>
+                    <th>Картинка</th>
+                    <th>Модель</th>
+                    <th>Цена</th>
+                    <th>Покупатель</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="order" items="${listOrder}" varStatus="status">
+                <c:forEach var="ups" items="${listUps}" varStatus="status">
                     <tr>
-                        <td>${status.index + 1}</td>
-                        <td>${order.id_product}</td>
-                        <td>${order.id_user}</td>
-                        <td>${order.number_of_product}</td>
-                        <td>
-                            <a href="editOrder?id_order=${order.id_order}">Редактировать</a>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="deleteOrder?id_order=${order.id_order}">Удалить</a>
-                        </td>
+                        <td>${ups.id_product}</td>
+                        <td>${ups.manufacturer_name}</td>
+                        <td>${ups.picture}</td>
+                        <td>${ups.model}</td>
+                        <td>${ups.cost}</td>
+                        <td>${ups.login}</td>
+                        <%--<td>--%>
+                            <%--&lt;%&ndash;<a href="editOrder?id_order=${order.id_order}">Редактировать</a>&ndash;%&gt;--%>
+                            <%--&nbsp;&nbsp;&nbsp;&nbsp;--%>
+                            <%--<a href="deleteOrder?id_order=${order.id_order}">Удалить</a>--%>
+                        <%--</td>--%>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -157,7 +167,7 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="copyright">
                     Copyright © 2016
-                    <a href="home">O•P•I</a>
+                    <a href="/bsuir">O•P•I</a>
                     - Все права защищены
                 </div>
             </div>

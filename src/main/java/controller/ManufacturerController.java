@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import dao.ManufacturerDao;
+import dao.UpsDao;
 import dao.UserDao;
 import domain.Manufacturer;
 import domain.Order;
@@ -32,8 +33,10 @@ public class ManufacturerController {
 //    private ManufacturerService manufacturerService;
         @Autowired
         private ManufacturerDao manufacturerDao;
+    @Autowired
+    private UpsDao upsDao;
 
-    @RequestMapping(value="/homeManufacturer")
+    @RequestMapping(value="/homeManufacturer**")
     @ResponseBody
     public ModelAndView listManufacturer(ModelAndView model) throws IOException {
         List<Manufacturer> listManufacturers = manufacturerDao.listManufacturers();
@@ -96,7 +99,7 @@ public class ManufacturerController {
     @RequestMapping(value="/catalog_acses")
     @ResponseBody
     public ModelAndView listTest(ModelAndView model) throws IOException {
-        List<Ups> listTest = manufacturerDao.listTest();
+        List<Ups> listTest = upsDao.listTest();
         model.addObject("listTest", listTest);
         model.setViewName("catalog_acses");
         return model;
@@ -104,7 +107,7 @@ public class ManufacturerController {
     @RequestMapping(value="/catalog_comp")
     @ResponseBody
     public ModelAndView listComp(ModelAndView model) throws IOException {
-        List<Ups> listTest = manufacturerDao.listComp();
+        List<Ups> listTest = upsDao.listComp();
         model.addObject("listTest", listTest);
         model.setViewName("catalog_comp");
         return model;
@@ -112,7 +115,7 @@ public class ManufacturerController {
     @RequestMapping(value="/catalog_photo_video")
     @ResponseBody
     public ModelAndView listPhotoVideo(ModelAndView model) throws IOException {
-        List<Ups> listTest = manufacturerDao.listPfotoVideo();
+        List<Ups> listTest = upsDao.listPfotoVideo();
         model.addObject("listTest", listTest);
         model.setViewName("catalog_photo_video");
         return model;
@@ -120,7 +123,7 @@ public class ManufacturerController {
     @RequestMapping(value="/catalog_tel")
     @ResponseBody
     public ModelAndView listTel(ModelAndView model) throws IOException {
-        List<Ups> listTest = manufacturerDao.listTel();
+        List<Ups> listTest = upsDao.listTel();
         model.addObject("listTest", listTest);
         model.setViewName("catalog_tel");
         return model;
@@ -128,19 +131,35 @@ public class ManufacturerController {
     @RequestMapping(value="/catalog_TV")
     @ResponseBody
     public ModelAndView listTV(ModelAndView model) throws IOException {
-        List<Ups> listTest = manufacturerDao.listTV();
+        List<Ups> listTest = upsDao.listTV();
         model.addObject("listTest", listTest);
         model.setViewName("catalog_TV");
         return model;
     }
 
-    @RequestMapping(value="/shopping-cart")
+    @RequestMapping(value="/shopping-cart", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView shopping(HttpServletRequest request) throws IOException {
-        int manufacturer_id = Integer.parseInt(request.getParameter("id_manufacturer"));
-        Manufacturer manufacturer = manufacturerDao.get(manufacturer_id);
+        int product_id = Integer.parseInt(request.getParameter("id_product"));
+        Ups ups = upsDao.get(product_id);
         ModelAndView model = new ModelAndView("shopping-cart");
-        model.addObject("manufacturer", manufacturer);
+        model.addObject("ups", ups);
         return model;
     }
+    @RequestMapping(value = "/addUps", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView addUps(@ModelAttribute Ups ups) {
+       upsDao.addUps(ups);
+        return new ModelAndView("redirect:/");
+    }
+    @RequestMapping(value="/homeOrder")
+    @ResponseBody
+    public ModelAndView listOrder(ModelAndView model) throws IOException {
+        List<Ups> listUps = upsDao.listUps();
+        model.addObject("listUps", listUps);
+        model.setViewName("homeOrder");
+
+        return model;
+    }
+
 }

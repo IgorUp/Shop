@@ -13,6 +13,16 @@ public class Ups {
     Integer cost;
     String picture;
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    String login;
+
     public String getManufacturer_name() {
         return manufacturer_name;
     }

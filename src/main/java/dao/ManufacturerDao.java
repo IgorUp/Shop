@@ -19,9 +19,4 @@ public interface ManufacturerDao {
 
     List<Manufacturer> listManufacturers();
 
-    List<Ups> listTest();
-    List<Ups> listComp();
-    List<Ups> listPfotoVideo();
-    List<Ups> listTel();
-    List<Ups> listTV();
 }

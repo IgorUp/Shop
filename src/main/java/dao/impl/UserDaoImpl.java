@@ -24,11 +24,15 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
-    public void upd(User user) {
-        String sql = "INSERT INTO user (name, surname,phone_number)"
-                + " VALUES (?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql,user.getName(),
+    public void addOrUpdate(User user) {
+
+
+        String sql = "INSERT INTO avtoriz VALUES (?, ?, ?, ?, ?, true)";
+        jdbcTemplate.update(sql,user.getUsername(),user.getPassword(),user.getName(),
                 user.getSurname(),  user.getPhone_number());
+//        String sql1 = "INSERT INTO user_roles (username, role)\n" +
+//                "VALUES (?, 'ROLE_USER')";
+//        jdbcTemplate.update(sql1,user.getUsername());
 //        String sql = "INSERT INTO user (role, name, surname, password, phone_number,login)"
 //                + " VALUES (?, ?, ?, ?, ?, ?)";
 //        jdbcTemplate.update(sql, user.getRole(), user.getName(),
@@ -36,13 +40,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void addOrUpdate(User user) {
+    public void upd(User user) {
         //if (user.getId_user() > 0) {
         // update
-        String sql = "UPDATE user SET  name=?, surname=?, "
-                + " phone_number=? WHERE id_user=?";
-        jdbcTemplate.update(sql, user.getName(),
-                user.getSurname(), user.getPhone_number(), user.getId_user());
+        String sql = "UPDATE avtoriz SET password=?, name=?, surname=?, "
+                + " phone_number=? WHERE username=?";
+        jdbcTemplate.update(sql,user.getPassword(), user.getName(),
+                user.getSurname(), user.getPhone_number(),user.getUsername());
 //        String sql = "UPDATE user SET role=?, name=?, surname=?, "
 //                + "password=?, phone_number=?, login=? WHERE id_user=?";
 //        jdbcTemplate.update(sql, user.getRole(), user.getName(),
@@ -57,14 +61,16 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void delete(Integer user_id) {
-        String sql = "DELETE FROM user WHERE id_user=?";
+    public void delete(String user_id) {
+        String sql1 = "DELETE FROM user_roles WHERE username=?";
+        jdbcTemplate.update(sql1, user_id);
+        String sql = "DELETE FROM avtoriz WHERE username=?";
         jdbcTemplate.update(sql, user_id);
     }
 
     @Override
-    public User get(Integer user_id) {
-        String sql = "SELECT * FROM user WHERE id_user=" + user_id;
+    public User get(String user_id) {
+        String sql = "SELECT avtoriz.username,avtoriz.password,avtoriz.name,avtoriz.surname,avtoriz.phone_number FROM avtoriz WHERE username=" + "'" + user_id + "'";
         return jdbcTemplate.query(sql, new ResultSetExtractor<User>() {
 
             @Override
@@ -72,13 +78,11 @@ public class UserDaoImpl implements UserDao {
                     DataAccessException {
                 if (rs.next()) {
                     User user = new User();
-                    user.setId_user(rs.getInt("id_user"));
-                    //user.setRole(rs.getInt("role"));
+                    user.setUsername(rs.getString("username"));
+                    user.setPassword(rs.getString("password"));
                     user.setName(rs.getString("name"));
                     user.setSurname(rs.getString("surname"));
-                    //user.setPassword(rs.getString("password"));
                     user.setPhone_number(rs.getInt("phone_number"));
-                    //user.setLogin(rs.getString("login"));
                     return user;
                 }
                 return null;
@@ -88,20 +92,18 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> listUsers() {
-        String sql = "SELECT * FROM user";
+        String sql = "SELECT avtoriz.username,avtoriz.password,avtoriz.name,avtoriz.surname,avtoriz.phone_number FROM avtoriz";
         List<User> listUser = jdbcTemplate.query(sql, new RowMapper<User>() {
 
             @Override
             public User mapRow(ResultSet rs, int rowNum) throws SQLException {
                 User user = new User();
 
-                user.setId_user(rs.getInt("id_user"));
-                //user.setRole(rs.getInt("role"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
                 user.setName(rs.getString("name"));
                 user.setSurname(rs.getString("surname"));
-                //user.setPassword(rs.getString("password"));
                 user.setPhone_number(rs.getInt("phone_number"));
-                //user.setLogin(rs.getString("login"));
 
                 return user;
             }
@@ -111,8 +113,4 @@ public class UserDaoImpl implements UserDao {
         return listUser;
     }
 
-    @Override
-    public void chek(String login, String password) {
-
-    }
 }

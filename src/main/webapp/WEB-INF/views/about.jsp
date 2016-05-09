@@ -65,7 +65,7 @@
 
 </head>
 <body ng-app class="cnt-home" >
-	
+
 		<!-- ============================================== HEADER ============================================== -->
 <header class="header-style-1">
 
@@ -75,8 +75,8 @@
 		<div class="header-top-inner">
 			<div class="cnt-account">
 				<ul class="list-unstyled">
-					<li><a href="shopping-cart"><i class="icon fa fa-shopping-cart"></i>Корзина</a></li>
-					<li><a href="signin"><i class="icon fa fa-sign-in"></i>Вход</a></li>
+					<%--<li><a href="shopping-cart"><i class="icon fa fa-shopping-cart"></i>Корзина</a></li>--%>
+					<%--<li><a href="signin"><i class="icon fa fa-sign-in"></i>Вход</a></li>--%>
 				</ul>
 			</div><!-- /.cnt-account -->
 
@@ -91,7 +91,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
 					<!-- ============================================================= LOGO ============================================================= -->
 <div class="logo">
-                        <a href="home">
+                        <a href="/bsuir">
 
                             <img src="<c:url value="/resources/assets/images/1.png"/>" alt="" width="225">
                         </a>
@@ -136,21 +136,21 @@
 				<div class="col-xs-12 col-sm-12 col-md-3 animate-dropdown top-cart-row">
 					<!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
-	<div class="dropdown dropdown-cart">
-		<a href="shopping-cart" class="dropdown-toggle lnk-cart" >
-			<div class="items-cart-inner">
-				<div class="total-price-basket">
-					<span class="lbl">Корзина</span>
-					<span class="total-price">
+	<%--<div class="dropdown dropdown-cart">--%>
+		<%--<a href="shopping-cart" class="dropdown-toggle lnk-cart" >--%>
+			<%--<div class="items-cart-inner">--%>
+				<%--<div class="total-price-basket">--%>
+					<%--<span class="lbl">Корзина</span>--%>
+					<%--<span class="total-price">--%>
 
-					</span>
-				</div>
-				<div class="basket">
-					<i class="glyphicon glyphicon-shopping-cart"></i>
-				</div>
-		    </div>
-		</a>
-	</div><!-- /.dropdown-cart -->
+					<%--</span>--%>
+				<%--</div>--%>
+				<%--<div class="basket">--%>
+					<%--<i class="glyphicon glyphicon-shopping-cart"></i>--%>
+				<%--</div>--%>
+		    <%--</div>--%>
+		<%--</a>--%>
+	<%--</div><!-- /.dropdown-cart -->--%>
 <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->				
 </div><!-- /.top-cart-row -->
 			</div><!-- /.row -->
@@ -176,7 +176,7 @@
 	<div class="nav-outer">
 		<ul class="nav navbar-nav">
 			<li class="dropdown yamm-fw">
-				<a href="home">Главная</a>
+				<a href="/bsuir">Главная</a>
 				<ul class="dropdown-menu">
 						<div class="yamm-content"> 
 						</div>
@@ -198,7 +198,11 @@
 			<li class="dropdown">
 				<a href="contact">Контакты</a>
 			</li>
-			
+			<li class="dropdown">
+				<a href="chart">Статистика</a>
+			</li><li class="dropdown">
+			<a href="test">Тест</a>
+		</li>
 			
 		</ul><!-- /.navbar-nav -->
 		<div class="clearfix"></div>				
@@ -373,7 +377,7 @@
 <div class="contact-info">
     <div class="footer-logo">
         <div class="logo">
-            <a href="home">
+            <a href="/bsuir">
                 
                              <img src="<c:url value="/resources/assets/images/1.png"/>" alt="" width="215">
 
@@ -487,7 +491,7 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="copyright">
                    Copyright © 2016
-                    <a href="home">O•P•I</a>
+                    <a href="/bsuir">O•P•I</a>
                     - Все права защищены
                 </div>
             </div>
@@ -549,7 +553,7 @@
 	</script>
 	<!-- For demo purposes – can be removed on production : End -->
 
-	
+
 
 </body>
 </html>

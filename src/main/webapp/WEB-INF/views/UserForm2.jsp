@@ -11,6 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page session="true"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -53,6 +54,11 @@
     <![endif]-->
 </head>
 <body class="cnt-home">
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+<form action="${logoutUrl}" method="post" id="logoutForm">
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}" />
+</form>
 <header class="header-style-1">
 
     <!-- ============================================== TOP MENU ============================================== -->
@@ -61,10 +67,11 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
-                        <li><a href="admin_tovar"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
-                        <li><a href="admin_manufact"><i class="icon fa fa-sign-in"></i>Работа с продавцами</a></li>
-                        <li><a href="admin_order"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
+                        <li><a href="homeUser"><i class="icon fa fa-user"></i>Работа с пользователями</a></li>
+                        <li><a href="homeManufacturer"><i class="icon fa fa-folder-open"></i>Работа с производителем</a></li>
+                        <li><a href="homeProductName"><i class="icon fa fa-folder-open"></i>Работа с наименованиями продуктов</a></li>
+                        <li><a href="homeProduct"><i class="icon fa fa-folder-open"></i>Работа с товаром</a></li>
+                        <li><a href="homeOrder"><i class="icon fa fa-shopping-cart"></i>Работа с заказами</a></li>
                     </ul>
                 </div><!-- /.cnt-account -->
 
@@ -120,13 +127,21 @@
 
         <div align="center">
             <h1>Работа с пользователями</h1>
-            <form:form action="saveUser2" method="post" modelAttribute="user">
+            <form:form action="addUser" method="post" modelAttribute="user">
                 <table>
-                    <form:hidden path="id_user"/>
+                    <%--<form:hidden path="id_user"/>--%>
                     <%--<tr>--%>
                         <%--<td>Роль:</td>--%>
                         <%--<td><form:input path="role" type="number" pattern="\d [0-1]"/></td>--%>
                     <%--</tr>--%>
+                    <tr>
+                        <td>Логин:</td>
+                        <td><form:input path="username" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Пароль:</td>
+                        <td><form:input path="password" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
+                    </tr>
                     <tr>
                         <td>Имя:</td>
                         <td><form:input path="name" pattern="[0-9A-Za-zА-Яа-яЁё]{3,}"/></td>
@@ -165,7 +180,7 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="copyright">
                     Copyright © 2016
-                    <a href="home">O•P•I</a>
+                    <a href="/bsuir">O•P•I</a>
                     - Все права защищены
                 </div>
             </div>
